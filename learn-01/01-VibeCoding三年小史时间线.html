@@ -1,0 +1,2127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibe Coding 三年小史 · 时间线｜常州夜校 · 第一课</title>
+<style>
+html,body{margin:0;height:100%;background:radial-gradient(120% 120% at 50% 0%,#0A1220 0%,#04070D 70%);overflow:hidden}
+body{display:grid;place-items:center}
+body.tl-scroll{display:block;overflow:auto}
+body.tl-scroll>#vc-tl{margin:20px auto}
+body>#vc-tl{width:1600px;height:900px;flex:none;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+</style>
+</head>
+<body>
+<script>window.__TL_STANDALONE__=1;</script>
+<div id="vc-tl" aria-label="Vibe Coding 三年小史：工具与模型合并时间线，点击时期卡片查看详细事件">
+  <div class="tl-stage" id="tl-stage">
+    <header class="tl-head">
+      <div>
+        <div class="tl-kicker">常州夜校 · 第一课 · VIBE CODING 0→1</div>
+        <h2 class="tl-title">Vibe Coding 三年小史</h2>
+        <div class="tl-sub">自然语言 → 可运行作品 → 任务代理 → 持续交付 · <span class="tl-en">Start with Vibes, Finish with Evidence</span></div>
+      </div>
+      <div class="tl-legend">
+        <span class="tl-lg"><i class="tl-lg-t"></i>工具与能力 · 同期合并</span>
+        <span class="tl-lg"><i class="tl-lg-b"></i>自然语言与通用代理</span>
+        <span class="tl-lg"><i class="tl-lg-r"></i>模型发布 · 已并入时期卡片</span>
+      </div>
+    </header>
+    <div class="tl-canvas" id="tl-canvas"></div>
+    <div class="tl-quote">先让想法出现，再证明它值得信任。<span class="tl-quote-en">Start with Vibes, Finish with Evidence</span></div>
+    <footer class="tl-foot">
+      <span>核验截止 2026.11.08 · 按时期合并、等距排列，非等比例年表 · 点击查看各事件日期与来源</span>
+      <span class="tl-tools">1—4 聚焦 · 0 复位 · <button type="button" class="tl-modebtn cursor-interaction" id="tl-notes-button">讲稿 N</button> · <button type="button" class="tl-modebtn cursor-interaction" id="tl-fullscreen">全屏 F</button> · <button type="button" class="tl-modebtn cursor-interaction" id="tl-reading">阅读模式 R</button> · <button type="button" class="tl-modebtn cursor-interaction" id="tl-mode">原始大小 G</button></span>
+    </footer>
+    <aside class="tl-detail" id="tl-detail" role="dialog" aria-labelledby="tl-dtitle" tabindex="-1" hidden>
+      <button type="button" class="tl-dclose cursor-interaction" id="tl-dclose" aria-label="关闭详情">✕</button>
+      <div class="tl-dchip" id="tl-dchip"></div>
+      <h3 class="tl-dtitle" id="tl-dtitle"></h3>
+      <div class="tl-ddate" id="tl-ddate"></div>
+      <p class="tl-ddesc" id="tl-ddesc"></p>
+      <div id="tl-dtimeline"></div>
+      <div id="tl-dsources"></div>
+      <div class="tl-drel-head" id="tl-drel-head">相关能力与模型 · 点击跳转</div>
+      <div id="tl-drels"></div>
+    </aside>
+    <aside class="tl-notes" id="tl-notes" role="dialog" aria-labelledby="tl-notes-title" tabindex="-1" hidden>
+      <button type="button" class="tl-dclose cursor-interaction" id="tl-notes-close" aria-label="关闭讲稿">✕</button>
+      <h3 id="tl-notes-title">讲稿要点 · 四段故事（约 3 分钟）</h3>
+      <h4>① 自然语言入口 · 2021—2023</h4>
+      <p>Copilot 先帮助补全代码，ChatGPT 让更多人用对话表达需求。2023 年，Karpathy 用“英语是最热门的新编程语言”概括这种可能性。这是入口变化，还需要把想法跑起来。</p>
+      <h4>② 看见可运行作品 · 2024</h4>
+      <p>Artifacts 把作品放到对话旁；Replit Agent、Bolt.new、Lovable 把生成、运行、修改和发布接起来。对普通人而言，关键是能看着作品说“这里再改一下”。这是原来时间线缺少的桥。</p>
+      <h4>③ 命名与任务代理 · 2025</h4>
+      <p>Vibe Coding 有了名字；Claude Code、Codex 把读文件、修改、运行检查组织为任务。Vibe Coding 描述工作方式，Agent 描述工具能力。使用代理时，人仍可以逐项审查、测试并负责。</p>
+      <h4>④ 能力爆发与工程化 · 2026</h4>
+      <p>沿着金色主线讲六件事：桌面入口、多代理分工、长任务、自动触发、操作界面并验证、持续交付项目。它们在多个产品中集中落地，不代表每项技术都首次出现在这一年。预览、正式开放、开放权重的日期分别看展开内容。</p>
+      <h4>用一件事把能力串起来</h4>
+      <p>做一个活动报名网页：先说清目标，让代理分工制作；再打开浏览器测试按钮、修正错误、发布链接；把成功流程保存，下次接着用。主线强调能多做什么，产品名和模型版本留给展开。</p>
+      <h4>模型怎么讲</h4>
+      <p>工具与同期模型已合并成时期卡片，红色标签提示对应模型。点击卡片，按各自日期展开；模型家族的完整代表节点可从详情中的相关链接进入。GPT、Claude、Gemini、DeepSeek、MiniMax、GLM、Qwen、Kimi 侧重通用、编程或代理能力；Seedance 是视频与音画生成；Jev 直接输出结构化判断与概率。</p>
+      <p>GLM-5.2 为 744B 总参数／40B 激活参数；DeepSeek V4 的 4 月预览与 8 月 V4-Pro 正式版分开记。参数规模与某次榜单成绩不能单独代表实际交付效果。</p>
+      <h4>收尾</h4>
+      <p>点开 10 月 31 日的 HackerTube 案例：同一个人从提出预言、命名工作方式，到公开作品制作过程。保留资深实践者案例的边界，把课堂目标落在“交付第一个可验证的作品”。</p>
+      <p class="tl-nkeys">1—4 聚焦阶段 · 0 复位 · N / Esc 关闭讲稿 · 资料截止 2026.11.08</p>
+    </aside>
+  </div>
+</div>
+<style>
+#vc-tl{position:relative;width:100%;border-radius:14px;overflow:hidden;font-family:'Microsoft YaHei','PingFang SC','Noto Sans SC',system-ui,sans-serif;color:#E2E8F0;background:#070D18;isolation:isolate;}
+#vc-tl .tl-stage{position:absolute;left:0;top:0;width:1600px;height:900px;transform-origin:0 0;background:radial-gradient(120% 150% at 18% -10%,#13203A 0%,#0C1425 52%,#070D18 100%);}
+#vc-tl .tl-head{position:absolute;left:64px;right:64px;top:32px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;z-index:3;}
+#vc-tl .tl-kicker{font-size:12px;letter-spacing:3px;color:#8CA0B8;}
+#vc-tl .tl-title{margin:7px 0 0;font-size:30px;font-weight:600;color:#F1F5F9;letter-spacing:1px;line-height:1.2;}
+#vc-tl .tl-sub{margin-top:7px;font-size:13px;color:#94A8BF;}
+#vc-tl .tl-en{color:#F5B04C;}
+#vc-tl .tl-legend{display:flex;flex-direction:column;gap:7px;padding-top:8px;flex:none;}
+#vc-tl .tl-lg{display:flex;align-items:center;gap:8px;font-size:12px;color:#A8BACD;white-space:nowrap;}
+#vc-tl .tl-lg i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+#vc-tl .tl-lg i.tl-lg-t{background:#F5B04C;box-shadow:0 0 9px rgba(245,176,76,.8);}
+#vc-tl .tl-lg i.tl-lg-b{background:#4CC3F5;box-shadow:0 0 9px rgba(76,195,245,.8);}
+#vc-tl .tl-lg i.tl-lg-r{background:#F87171;box-shadow:0 0 9px rgba(248,113,113,.8);}
+#vc-tl .tl-canvas{position:absolute;inset:0;z-index:2;}
+#vc-tl .tl-zone{position:absolute;top:116px;height:680px;border-radius:12px;}
+#vc-tl .tl-zone + .tl-zone{border-left:1px dashed rgba(255,255,255,.08);}
+#vc-tl .tl-zone-tag{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:1px;color:#A8BACD;background:rgba(10,16,28,.72);border:1px solid rgba(255,255,255,.1);padding:3px 11px;border-radius:999px;white-space:nowrap;}
+#vc-tl .tl-axis{position:absolute;left:64px;width:1472px;top:399px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.05),rgba(255,255,255,.3) 10%,rgba(255,255,255,.3) 93%,rgba(255,255,255,.08));transform-origin:left center;}
+#vc-tl .tl-raxis{position:absolute;left:64px;width:1472px;top:644px;height:1.5px;background:linear-gradient(90deg,rgba(248,113,113,.07),rgba(248,113,113,.32) 8%,rgba(248,113,113,.32) 96%,rgba(248,113,113,.07));transform-origin:left center;}
+#vc-tl .tl-rlanetag{position:absolute;left:68px;top:618px;font-size:11px;letter-spacing:2.5px;color:rgba(252,165,165,.72);}
+#vc-tl .tl-rdot{position:absolute;top:645px;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);background:#F87171;box-shadow:0 0 0 3px rgba(248,113,113,.14),0 0 10px rgba(248,113,113,.45);}
+#vc-tl .tl-rlab{position:absolute;width:170px;text-align:center;}
+#vc-tl .tl-rlab .rl1{font-size:13px;font-weight:600;color:#FCA5A5;line-height:1.3;}
+#vc-tl .tl-rlab .rdt{font-size:11px;font-weight:400;color:#D49B9B;margin-left:6px;font-variant-numeric:tabular-nums;}
+#vc-tl .tl-rlab .rd2{margin-top:2px;font-size:11px;color:#9AA8B8;line-height:1.4;}
+#vc-tl .tl-dot{position:absolute;top:400px;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%);}
+#vc-tl .tl-dot.t{background:#F5B04C;box-shadow:0 0 0 3px rgba(245,176,76,.16),0 0 11px rgba(245,176,76,.5);}
+#vc-tl .tl-dot.b{background:#4CC3F5;box-shadow:0 0 0 3px rgba(76,195,245,.16),0 0 11px rgba(76,195,245,.5);}
+#vc-tl .tl-date{position:absolute;top:411px;transform:translateX(-50%);font-size:11px;color:#93A6BC;font-variant-numeric:tabular-nums;white-space:nowrap;}
+#vc-tl .tl-stem{position:absolute;width:1.5px;transform:translateX(-50%);}
+#vc-tl .tl-stem.t{background:linear-gradient(180deg,rgba(245,176,76,.04),rgba(245,176,76,.6));}
+#vc-tl .tl-stem.b{background:linear-gradient(0deg,rgba(76,195,245,.04),rgba(76,195,245,.6));}
+#vc-tl .tl-card{position:absolute;width:180px;padding:11px 13px 12px;border-radius:10px;background:rgba(19,29,49,.58);border:1px solid rgba(255,255,255,.09);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default;}
+#vc-tl .tl-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.24);box-shadow:0 12px 30px rgba(0,0,0,.5);}
+#vc-tl .tl-card .ct{font-size:14.5px;font-weight:600;color:#F1F5F9;letter-spacing:.3px;line-height:1.35;}
+#vc-tl .tl-card .ct::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:1.5px;}
+#vc-tl .tl-card.t .ct::before{background:#F5B04C;}
+#vc-tl .tl-card.b .ct::before{background:#4CC3F5;}
+#vc-tl .tl-card .cd{margin-top:4px;font-size:12px;line-height:1.5;color:#9FB2C6;text-wrap:balance;}
+#vc-tl .tl-rlab .rd2{text-wrap:balance;}
+#vc-tl .tl-pin-tag{position:absolute;text-align:center;background:rgba(255,138,92,.1);border:1px solid rgba(255,138,92,.42);border-radius:10px;padding:7px 13px;transform:translateX(-50%);}
+#vc-tl .tl-pin-tag .pt1{font-size:13px;font-weight:600;color:#FFB08C;letter-spacing:1px;white-space:nowrap;}
+#vc-tl .tl-pin-tag .pt2{font-size:11px;color:#D8A68C;margin-top:2px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+#vc-tl .tl-pin-needle{position:absolute;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,rgba(255,138,92,.15),rgba(255,138,92,.75));}
+#vc-tl .tl-pin-head{position:absolute;top:400px;width:13px;height:13px;border-radius:50%;transform:translate(-50%,-50%);background:#FF8A5C;box-shadow:0 0 12px rgba(255,138,92,.85);}
+#vc-tl .tl-pin-head.pulse{animation:tlPulse 2.2s ease-out infinite;}
+#vc-tl .tl-quote{position:absolute;left:0;right:0;top:768px;text-align:center;font-size:17px;color:#C4D3E2;letter-spacing:1.5px;z-index:2;}
+#vc-tl .tl-quote-en{margin-left:16px;font-size:13px;color:#8298AF;letter-spacing:.5px;}
+#vc-tl .tl-foot{position:absolute;left:64px;right:64px;top:858px;display:flex;justify-content:space-between;gap:20px;font-size:11px;color:#7E93A9;z-index:2;}
+#vc-tl .tl-notes{position:absolute;left:9%;right:9%;top:7%;max-height:86%;overflow:auto;background:rgba(7,11,20,.97);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:26px 36px;z-index:60;font-size:13px;line-height:1.8;color:#C6D5E4;}
+#vc-tl .tl-notes h3{margin:0 0 8px;font-size:15px;color:#F5B04C;letter-spacing:1px;}
+#vc-tl .tl-notes h4{margin:14px 0 3px;font-size:13px;color:#FFD08A;}
+#vc-tl .tl-notes p{margin:0 0 6px;}
+#vc-tl .tl-nkeys{color:#7E93A9;font-size:11px;margin-top:12px;}
+#vc-tl [data-zone]{transition:opacity .35s,filter .35s;}
+#vc-tl[data-spot="1"] [data-zone]:not([data-zone="1"]),
+#vc-tl[data-spot="2"] [data-zone]:not([data-zone="2"]),
+#vc-tl[data-spot="3"] [data-zone]:not([data-zone="3"]){opacity:.13;filter:saturate(.25);}
+#vc-tl[data-spot="1"] .tl-zone[data-z="1"]{background:rgba(148,163,184,.1);}
+#vc-tl[data-spot="2"] .tl-zone[data-z="2"]{background:rgba(148,163,184,.1);}
+#vc-tl[data-spot="3"] .tl-zone[data-z="3"]{background:rgba(245,176,76,.11);}
+@keyframes tlUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@keyframes tlFade{from{opacity:0;}to{opacity:1;}}
+@keyframes tlAx{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+@keyframes tlPulse{0%{box-shadow:0 0 0 0 rgba(255,138,92,.45),0 0 12px rgba(255,138,92,.85);}70%{box-shadow:0 0 0 15px rgba(255,138,92,0),0 0 12px rgba(255,138,92,.85);}100%{box-shadow:0 0 0 0 rgba(255,138,92,0),0 0 12px rgba(255,138,92,.85);}}
+#vc-tl .tl-in{animation:tlUp .55s ease backwards;}
+#vc-tl .tl-fade{animation:tlFade .6s ease backwards;}
+#vc-tl .tl-axis.tl-fade{animation-name:tlAx;animation-duration:.8s;animation-timing-function:ease-out;}
+@media (prefers-reduced-motion: reduce){
+  #vc-tl .tl-in,#vc-tl .tl-fade{animation:none;}
+  #vc-tl .tl-pin-head.pulse{animation:none;}
+}
+#vc-tl button.tl-card{font-family:inherit;letter-spacing:inherit;text-align:left;}
+#vc-tl .tl-card.is-active{border-color:rgba(245,176,76,.8);box-shadow:0 0 0 1px rgba(245,176,76,.3),0 12px 30px rgba(0,0,0,.5);}
+#vc-tl .tl-card.b.is-active{border-color:rgba(76,195,245,.8);box-shadow:0 0 0 1px rgba(76,195,245,.3),0 12px 30px rgba(0,0,0,.5);}
+@keyframes tlFlash{0%{box-shadow:0 0 0 0 rgba(255,255,255,.45);}100%{box-shadow:0 0 0 16px rgba(255,255,255,0);}}
+#vc-tl .is-flash{animation:tlFlash .8s ease-out;}
+#vc-tl .tl-detail{position:absolute;right:44px;top:126px;width:380px;max-height:646px;overflow:auto;background:rgba(7,11,20,.97);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:20px 22px 18px;z-index:45;box-shadow:0 24px 60px rgba(0,0,0,.55);}
+#vc-tl .tl-detail[hidden]{display:none;}
+#vc-tl .tl-detail.is-open{animation:tlPanelIn .28s ease;}
+@keyframes tlPanelIn{from{opacity:0;transform:translateX(14px);}to{opacity:1;transform:none;}}
+#vc-tl .tl-dchip{display:flex;align-items:center;gap:7px;font-size:11px;color:#A8BACD;letter-spacing:1px;}
+#vc-tl .tl-dchip i{width:8px;height:8px;border-radius:50%;flex:none;}
+#vc-tl .tl-dtitle{margin:8px 0 2px;font-size:18px;color:#F1F5F9;letter-spacing:.5px;}
+#vc-tl .tl-ddate{font-size:11px;color:#93A6BC;font-variant-numeric:tabular-nums;}
+#vc-tl .tl-ddesc{margin:10px 0 0;font-size:12.5px;line-height:1.75;color:#C6D5E4;}
+#vc-tl .tl-drel-head{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;letter-spacing:2px;color:#8CA0B8;}
+#vc-tl .tl-drel{display:flex;align-items:center;gap:8px;width:100%;margin-top:8px;padding:8px 10px;border:1px solid rgba(255,255,255,.08);border-radius:9px;background:rgba(20,30,50,.5);color:#DDE7F0;font-size:12.5px;font-family:inherit;text-align:left;}
+#vc-tl .tl-drel:hover{border-color:rgba(255,255,255,.26);background:rgba(30,42,66,.6);}
+#vc-tl .tl-drel .rr-dot{width:7px;height:7px;border-radius:50%;flex:none;}
+#vc-tl .tl-drel .rr-note{margin-left:auto;font-size:11px;color:#8CA0B8;font-variant-numeric:tabular-nums;white-space:nowrap;}
+#vc-tl .tl-dclose{position:absolute;top:10px;right:10px;width:28px;height:28px;border:none;background:transparent;color:#8CA0B8;font-size:15px;line-height:1;border-radius:7px;}
+#vc-tl .tl-dclose:hover{color:#F1F5F9;background:rgba(255,255,255,.08);}
+#vc-tl button.tl-rlab{font-family:inherit;color:#E2E8F0;background:transparent;border:1px solid transparent;padding:2px 4px;border-radius:8px;}
+#vc-tl button.tl-rlab:hover{background:rgba(248,113,113,.08);}
+#vc-tl .tl-rlab.is-active{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.45);}
+body.tl-sa #vc-tl .tl-card,body.tl-sa #vc-tl button.tl-rlab,body.tl-sa #vc-tl .tl-dclose,body.tl-sa #vc-tl .tl-drel{cursor:pointer;}
+#vc-tl .tl-modebtn{background:none;border:none;padding:0;font:inherit;color:#A8BACD;text-decoration:underline dotted;text-underline-offset:3px;}
+#vc-tl .tl-modebtn:hover{color:#F1F5F9;}
+#vc-tl.is-raw{overflow:auto;}
+#vc-tl.is-raw .tl-stage{cursor:grab;}
+#vc-tl.is-raw .tl-stage.is-drag{cursor:grabbing;}
+/* Keep the original presentation palette; detail density lives in the drawer. */
+#vc-tl *,#vc-tl *::before,#vc-tl *::after{box-sizing:border-box;}
+#vc-tl button,#vc-tl a{touch-action:manipulation;}
+#vc-tl button{cursor:pointer;}
+#vc-tl button:focus-visible,#vc-tl a:focus-visible{outline:2px solid #F5B04C;outline-offset:4px;}
+#vc-tl .tl-zone{height:590px;background:var(--zone-color);}
+#vc-tl .tl-zone-tag{font-family:inherit;cursor:pointer;}
+#vc-tl .tl-zone-tag[aria-pressed="true"]{color:#F1F5F9;border-color:#8CA0B8;}
+#vc-tl .tl-card{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;width:190px;height:180px;padding:12px;}
+#vc-tl .tl-card .ct{font-size:14px;letter-spacing:0;}
+#vc-tl .tl-card .cd{font-size:12px;line-height:1.55;}
+#vc-tl .tl-card .card-date{display:block;margin-bottom:5px;color:#8CA0B8;font-size:10px;font-variant-numeric:tabular-nums;letter-spacing:.3px;}
+#vc-tl .tl-card .card-date::after{content:' ↗';color:#647B95;}
+#vc-tl .tl-card.r{border-color:rgba(248,113,113,.22);background:rgba(49,25,40,.38);}
+#vc-tl .tl-card.r .ct::before{background:#F87171;}
+#vc-tl .tl-card.r.is-active{border-color:#F87171;box-shadow:0 0 0 1px rgba(248,113,113,.3),0 12px 30px rgba(0,0,0,.5);}
+#vc-tl .tl-dot.r{background:#F87171;box-shadow:0 0 0 3px rgba(248,113,113,.16),0 0 11px rgba(248,113,113,.5);}
+#vc-tl .tl-stem.above{background:linear-gradient(180deg,transparent,var(--stem-color));}
+#vc-tl .tl-stem.below{background:linear-gradient(0deg,transparent,var(--stem-color));}
+#vc-tl .tl-model-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px;}
+#vc-tl .tl-model-chip{display:inline-block;padding:2px 5px;border:1px solid rgba(248,113,113,.25);border-radius:5px;background:rgba(248,113,113,.065);color:#FCA5A5;font-size:10.5px;line-height:1.35;white-space:nowrap;}
+#vc-tl .tl-model-chip.more{color:#D5A0A5;border-style:dashed;}
+#vc-tl .card-hint{position:absolute;bottom:11px;left:12px;right:12px;display:flex;justify-content:space-between;color:#7E93A9;font-size:10px;line-height:1.5;}
+#vc-tl .card-hint span:last-child{color:#B8C8DA;}
+#vc-tl .tl-kind-model{display:inline-block;margin-left:6px;color:#FCA5A5;font-size:10.5px;}
+#vc-tl .tl-quote{top:783px;font-size:16px;}
+#vc-tl .tl-tools{white-space:nowrap;}
+#vc-tl .tl-detail{width:490px;max-height:704px;top:118px;padding:23px 26px 24px;overscroll-behavior:contain;}
+#vc-tl .tl-dtitle{padding-right:18px;}
+#vc-tl .tl-ddate{line-height:1.7;}
+#vc-tl .tl-ddesc{font-size:13px;}
+#vc-tl .tl-event-list{list-style:none;margin:18px 0 0;padding:0 0 0 15px;border-left:1px solid rgba(245,176,76,.3);}
+#vc-tl .tl-event-list>li{position:relative;margin:0 0 20px;}
+#vc-tl .tl-event-list>li::before{content:'';position:absolute;left:-19px;top:6px;width:7px;height:7px;border-radius:50%;background:#F5B04C;}
+#vc-tl .tl-event-list>li[data-kind="model"]::before{background:#F87171;}
+#vc-tl .tl-detail[data-kind="model"] .tl-event-list{border-left-color:rgba(248,113,113,.3);}
+#vc-tl .tl-detail[data-kind="model"] .tl-event-list>li::before{background:#F87171;}
+#vc-tl .tl-event-list time{font-size:11px;color:#93A6BC;font-variant-numeric:tabular-nums;}
+#vc-tl .tl-event-list h4{margin:5px 0;font-size:13px;font-weight:600;color:#E2E8F0;line-height:1.6;}
+#vc-tl .tl-event-list p{margin:0;font-size:12.5px;line-height:1.8;color:#B7C8DB;}
+#vc-tl .tl-status{display:inline-block;margin-left:7px;padding:1px 5px;border:1px solid rgba(255,255,255,.1);border-radius:4px;font-size:10px;line-height:1.5;color:#BAC7D6;}
+#vc-tl .tl-source-list{margin:9px 0 0;padding:0;list-style:none;display:grid;gap:6px;}
+#vc-tl .tl-source-list a{font-size:11.5px;color:#79C9EB;text-decoration:underline;text-decoration-color:rgba(121,201,235,.3);text-underline-offset:3px;line-height:1.7;overflow-wrap:anywhere;}
+#vc-tl .tl-source-list a:hover{color:#B9E7FF;}
+#vc-tl .tl-source-heading{margin:17px 0 0;font-size:11px;color:#8CA0B8;}
+#vc-tl .tl-drel{line-height:1.6;font-size:12px;}
+#vc-tl .tl-drel .rr-title{min-width:0;}
+#vc-tl .tl-dclose{width:32px;height:32px;}
+#vc-tl .tl-notes[hidden]{display:none;}
+#vc-tl[data-spot="4"] [data-zone]:not([data-zone="4"]){opacity:.13;filter:saturate(.25);}
+#vc-tl[data-spot="4"] .tl-zone[data-z="4"]{background:rgba(76,195,245,.1);}
+#vc-tl .tl-notes{max-height:790px;padding-top:30px;}
+body.tl-reading{display:block;height:auto;overflow:auto;}
+body.tl-reading>#vc-tl{width:calc(100% - 24px)!important;height:auto!important;margin:12px auto;transform:none!important;}
+#vc-tl.is-reading .tl-stage{position:relative;width:100%;height:auto;transform:none!important;}
+#vc-tl.is-reading .tl-head{position:relative;inset:auto;padding:25px 22px 12px;display:block;}
+#vc-tl.is-reading .tl-title{font-size:26px;}
+#vc-tl.is-reading .tl-sub{line-height:1.9;}
+#vc-tl.is-reading .tl-en{display:block;}
+#vc-tl.is-reading .tl-legend{margin-top:13px;gap:7px;}
+#vc-tl.is-reading .tl-canvas{position:relative;inset:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;padding:16px 22px;}
+#vc-tl.is-reading .tl-zone,#vc-tl.is-reading .tl-axis,#vc-tl.is-reading .tl-dot,#vc-tl.is-reading .tl-date,#vc-tl.is-reading .tl-stem{display:none;}
+#vc-tl.is-reading .tl-card{position:relative!important;inset:auto!important;width:100%!important;height:auto;min-height:145px;padding:16px;align-self:stretch;}
+#vc-tl.is-reading .tl-card .ct{font-size:15px;}
+#vc-tl.is-reading .tl-card .cd{font-size:13px;}
+#vc-tl.is-reading .tl-card .card-date{font-size:11px;}
+#vc-tl.is-reading .tl-model-chip{font-size:11.5px;padding:3px 6px;}
+#vc-tl.is-reading .card-hint{position:static;margin-top:15px;font-size:11px;}
+#vc-tl.is-reading .tl-quote{position:static;padding:24px 20px 8px;font-size:14px;line-height:1.9;}
+#vc-tl.is-reading .tl-quote-en{display:block;margin-left:0;font-size:11px;}
+#vc-tl.is-reading .tl-foot{position:static;padding:20px 22px 26px;display:block;line-height:1.9;}
+#vc-tl.is-reading .tl-tools{display:block;white-space:normal;margin-top:12px;}
+#vc-tl.is-reading .tl-detail,#vc-tl.is-reading .tl-notes{position:fixed;inset:12px;width:auto;max-height:calc(100dvh - 24px);padding:26px 22px;z-index:80;box-shadow:0 0 0 20px rgba(0,0,0,.55);}
+@media(max-width:420px){#vc-tl.is-reading .tl-canvas{grid-template-columns:minmax(0,1fr);}#vc-tl.is-reading .tl-title{font-size:24px;}}
+@media(prefers-reduced-motion:reduce){#vc-tl .tl-detail.is-open,#vc-tl .is-flash{animation:none;}}
+</style>
+<script id="tl-data" type="application/json">{
+  "cutoff": "2026-11-08",
+  "main": [
+    "era-foundation",
+    "era-prophecy",
+    "era-artifacts",
+    "era-builders",
+    "era-naming",
+    "era-agents",
+    "era-model-wave",
+    "era-desktop",
+    "era-february",
+    "era-automation",
+    "era-delivery",
+    "era-cloud",
+    "era-projects",
+    "era-case"
+  ],
+  "context": [],
+  "events": [
+    {
+      "id": "foundation",
+      "date": "2021-06-29",
+      "title": "补全与对话",
+      "summary": "从补一行代码，到用语言提需求",
+      "detail": "先有编程补全，再有面向大众的对话入口。这段前史说明自然语言如何进入开发流程；两个产品的发布日分别列在下面。",
+      "status": "前史",
+      "sources": [],
+      "band": "b",
+      "dateLabel": "前史 · 2021.06—2022.11",
+      "children": [
+        "copilot",
+        "chatgpt"
+      ],
+      "related": [
+        "gpt",
+        "prophecy"
+      ]
+    },
+    {
+      "id": "copilot",
+      "date": "2021-06-29",
+      "title": "GitHub Copilot 技术预览",
+      "summary": "代码补全",
+      "detail": "根据文件上下文建议代码，帮助开发者完成下一行或整个函数。属于编程辅助能力。",
+      "status": "技术预览",
+      "sources": [
+        {
+          "label": "GitHub 官方｜Introducing GitHub Copilot",
+          "url": "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "date": "2022-11-30",
+      "title": "ChatGPT 研究预览",
+      "summary": "对话入口",
+      "detail": "用户可以通过对话提出问题、补充条件、要求修改；生成代码仍需要运行和验证。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜Introducing ChatGPT",
+          "url": "https://openai.com/index/chatgpt/"
+        }
+      ]
+    },
+    {
+      "id": "prophecy",
+      "date": "2023-01",
+      "title": "用自然语言编程",
+      "summary": "Karpathy：英语是新的编程入口",
+      "detail": "Karpathy 提出用自然语言表达计算意图的可能性。这是叙事起点，不表示当时已经能可靠交付任意软件。日期保留到月。",
+      "status": "观点",
+      "sources": [
+        {
+          "label": "Karpathy 原帖｜The hottest new programming language is English",
+          "url": "https://x.com/karpathy/status/1617979122625712128"
+        }
+      ],
+      "related": [
+        "artifacts",
+        "naming",
+        "gpt"
+      ]
+    },
+    {
+      "id": "artifacts",
+      "date": "2024-06",
+      "title": "看着作品改需求",
+      "summary": "Artifacts：从代码到可见作品",
+      "detail": "Claude Artifacts 研究预览把代码、网页等内容放入独立工作区，支持边看边修改。这里按月记录，避免把不同官方材料中的日级差异写成定论。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Claude 3.5 Sonnet 与 Artifacts",
+          "url": "https://www.anthropic.com/news/claude-3-5-sonnet"
+        }
+      ],
+      "related": [
+        "builders",
+        "claude"
+      ]
+    },
+    {
+      "id": "builders",
+      "date": "2024-09",
+      "title": "生成、运行、发布",
+      "summary": "应用生成器补上环境与上线",
+      "detail": "2024 年秋，Replit Agent、Bolt.new、Lovable 等产品让用户围绕一个可运行的应用持续提要求。它们各自的开放日期不同，不能把一组变化写成单一发布日。",
+      "status": "产品路线出现",
+      "sources": [],
+      "dateLabel": "2024.09—11",
+      "children": [
+        "replit",
+        "bolt",
+        "lovable",
+        "replit-ga"
+      ],
+      "related": [
+        "agents",
+        "delivery"
+      ]
+    },
+    {
+      "id": "replit",
+      "date": "2024-09",
+      "title": "Replit Agent 进入早期开放",
+      "summary": "自然语言建应用",
+      "detail": "将应用制作、开发环境、数据库和部署组织进自然语言交互。首发日未充分核定，按月记录。",
+      "status": "Early access",
+      "sources": [
+        {
+          "label": "Replit 官方｜Introducing Replit Agent",
+          "url": "https://replit.com/blog/introducing-replit-agent"
+        }
+      ]
+    },
+    {
+      "id": "bolt",
+      "date": "2024-10",
+      "title": "Bolt.new 在 ViteConf 发布",
+      "summary": "浏览器里运行应用",
+      "detail": "结合 WebContainers，在浏览器中编辑、安装依赖、运行和预览应用；无需先搭建本地开发环境。按官方大会回顾记录到月。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "StackBlitz 官方｜ViteConf 2024 回顾",
+          "url": "https://blog.stackblitz.com/posts/viteconf-2024-recap/"
+        },
+        {
+          "label": "Bolt.new 官方仓库",
+          "url": "https://github.com/stackblitz/bolt.new"
+        }
+      ]
+    },
+    {
+      "id": "lovable",
+      "date": "2024-11-18",
+      "title": "Lovable 发布",
+      "summary": "围绕作品迭代",
+      "detail": "官方一周年文章追认的发布日期。用自然语言描述应用、查看结果并继续修改；后续集成功能不倒填为首日能力。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Lovable 官方｜One year of Lovable",
+          "url": "https://lovable.dev/blog/one-year-of-lovable"
+        }
+      ]
+    },
+    {
+      "id": "replit-ga",
+      "date": "2024-12-10",
+      "title": "Replit Agent 退出早期开放",
+      "summary": "开放范围扩大",
+      "detail": "与 9 月 early access 分开记录，避免把介绍文章的日期当作首次发布日。",
+      "status": "正式可用",
+      "sources": [
+        {
+          "label": "Replit 官方｜Agent 正式开放公告",
+          "url": "https://replit.com/blog/new-ai-assistant-announcement"
+        }
+      ]
+    },
+    {
+      "id": "naming",
+      "date": "2025-02",
+      "title": "Vibe Coding 命名",
+      "summary": "描述目标，快速试出一个作品",
+      "detail": "Karpathy 为凭感觉快速制作作品的方式命名。Vibe Coding 描述工作方式；Agent 描述工具执行能力。审查、解释、测试生成的代码，是另一项需要练习的责任。日期按月记录。",
+      "status": "命名",
+      "sources": [
+        {
+          "label": "Karpathy 原帖｜Vibe Coding",
+          "url": "https://x.com/karpathy/status/1886192184808149383"
+        },
+        {
+          "label": "Simon Willison｜What is vibe coding?",
+          "url": "https://simonwillison.net/2025/Mar/19/vibe-coding/"
+        }
+      ],
+      "related": [
+        "agents",
+        "case"
+      ]
+    },
+    {
+      "id": "agents",
+      "date": "2025-02-24",
+      "title": "交给代理一个任务",
+      "summary": "读文件、修改、运行检查",
+      "detail": "Claude Code 与 Codex 将多步执行组织为可委派任务。研究预览、CLI 开源和云端预览分别标日期；使用代理仍需要审查和验证。",
+      "status": "代理工具落地",
+      "sources": [],
+      "dateLabel": "2025.02—05",
+      "children": [
+        "cc-preview",
+        "codex-cli",
+        "codex-cloud",
+        "cc-ga"
+      ],
+      "related": [
+        "claude",
+        "gpt",
+        "desktop"
+      ]
+    },
+    {
+      "id": "cc-preview",
+      "date": "2025-02-24",
+      "title": "Claude Code 研究预览",
+      "summary": "终端里的编程代理",
+      "detail": "可以在项目中使用工具、读文件并修改代码，把建议转成实际操作。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Claude 3.7 Sonnet 与 Claude Code",
+          "url": "https://www.anthropic.com/news/claude-3-7-sonnet"
+        }
+      ]
+    },
+    {
+      "id": "codex-cli",
+      "date": "2025-04-16",
+      "title": "Codex CLI 开源",
+      "summary": "终端执行任务",
+      "detail": "OpenAI 发布开源 Codex CLI，在本地终端使用编程代理。",
+      "status": "开源发布",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜API 更新日志，2025-04-16",
+          "url": "https://developers.openai.com/api/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": "codex-cloud",
+      "date": "2025-05-16",
+      "title": "云端 Codex 研究预览",
+      "summary": "在独立环境里处理任务",
+      "detail": "每项任务运行于隔离的云端环境，可以并行修改代码、回答代码库问题；结果供人检查。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜Introducing Codex",
+          "url": "https://openai.com/index/introducing-codex/"
+        }
+      ]
+    },
+    {
+      "id": "cc-ga",
+      "date": "2025-05-22",
+      "title": "Claude Code 正式可用",
+      "summary": "从预览转为正式产品",
+      "detail": "与同日 Claude 4 模型发布分别理解：一个是工具，一个是模型。",
+      "status": "正式可用",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Claude 4 与 Claude Code GA",
+          "url": "https://www.anthropic.com/news/claude-4"
+        }
+      ]
+    },
+    {
+      "id": "desktop",
+      "date": "2026-02-02",
+      "title": "桌面任务工作台",
+      "summary": "Codex app：集中派活与审查",
+      "detail": "Codex app 首先在 macOS 发布，集中组织多个代理任务、项目与结果审查；Windows 版在下一节点推出。",
+      "status": "macOS 首发",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜Introducing the Codex app",
+          "url": "https://openai.com/index/introducing-the-codex-app/"
+        }
+      ],
+      "children": [
+        "codex-windows"
+      ],
+      "related": [
+        "agents",
+        "teams",
+        "gpt"
+      ]
+    },
+    {
+      "id": "codex-windows",
+      "date": "2026-03-04",
+      "title": "Codex app 推出 Windows 版",
+      "summary": "桌面入口覆盖更多用户",
+      "detail": "Windows 用户可以使用独立桌面入口组织代理任务。",
+      "status": "Windows 发布",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": "teams",
+      "date": "2026-02-05",
+      "title": "多个代理分工",
+      "summary": "Claude Code：团队协作预览",
+      "detail": "agent teams 允许多个代理并行工作并协调任务。课堂可以用“分别调研、制作、检查”解释；该日仍为研究预览，不能写成全量正式开放。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Opus 4.6 与 agent teams",
+          "url": "https://www.anthropic.com/news/claude-opus-4-6"
+        }
+      ],
+      "related": [
+        "long-tasks",
+        "claude",
+        "kimi"
+      ]
+    },
+    {
+      "id": "long-tasks",
+      "date": "2026-02-12",
+      "title": "持续执行长任务",
+      "summary": "Cursor：从一步到更长流程",
+      "detail": "Cursor 扩大 long-running agents 研究预览，使用规划、执行和检查等分工推进更长任务。官方案例说明可承接的任务规模扩大，不保证任意任务都能成功。",
+      "status": "扩大研究预览",
+      "sources": [
+        {
+          "label": "Cursor 官方｜Long-running agents",
+          "url": "https://cursor.com/blog/long-running-agents"
+        }
+      ],
+      "children": [
+        "goal-mode"
+      ],
+      "related": [
+        "teams",
+        "projects"
+      ]
+    },
+    {
+      "id": "goal-mode",
+      "date": "2026-05-21",
+      "title": "Codex Goal mode 退出实验状态",
+      "summary": "围绕目标持续推进",
+      "detail": "在 app、IDE 扩展和 CLI 中开放，以目标组织持续执行的任务。此日是退出实验状态，不能写成首次发明长任务。",
+      "status": "退出实验状态",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        },
+        {
+          "label": "OpenAI 官方｜Long-horizon tasks",
+          "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex"
+        }
+      ]
+    },
+    {
+      "id": "automations",
+      "date": "2026-03-05",
+      "title": "条件满足就开工",
+      "summary": "定时或外部事件触发任务",
+      "detail": "Cursor Automations 支持按时间或外部信号触发代理流程，让重复工作不必每次都由人重新发起。需要先配置触发条件、权限和工作环境。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Cursor 官方｜Build agents that run automatically",
+          "url": "https://cursor.com/blog/automations"
+        }
+      ],
+      "related": [
+        "projects",
+        "personal-agent"
+      ]
+    },
+    {
+      "id": "computer",
+      "date": "2026-03-23",
+      "title": "操作界面并验证",
+      "summary": "打开网页，测试按钮，再修错",
+      "detail": "电脑操作能力进入 Cowork 与 Claude Code 的研究预览；随后 Codex 支持代理操作内置浏览器。它们是产品落地节点，电脑操作技术更早就已存在。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "Claude 官方｜发布日志",
+          "url": "https://support.claude.com/en/articles/12138966-release-notes"
+        }
+      ],
+      "children": [
+        "codex-computer",
+        "codex-browser",
+        "auto-mode"
+      ],
+      "related": [
+        "delivery",
+        "projects"
+      ]
+    },
+    {
+      "id": "codex-computer",
+      "date": "2026-04-16",
+      "title": "Codex app 增加电脑操作等能力",
+      "summary": "操作范围扩展",
+      "detail": "该次更新加入后台电脑操作、内置浏览器等能力；浏览器存在与代理能操作浏览器是两个节点。",
+      "status": "功能更新",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": "codex-browser",
+      "date": "2026-04-23",
+      "title": "Codex 代理可操作内置浏览器",
+      "summary": "验证网页交互",
+      "detail": "代理可以在内置浏览器中操作页面，检查交互效果并帮助定位问题。",
+      "status": "功能更新",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": "auto-mode",
+      "date": "2026-08-14",
+      "title": "Claude Code auto 模式调整新会话默认值",
+      "summary": "自动审查操作权限",
+      "detail": "适用于 Pro、Max、Team 的新会话；已固定的用户或组织默认设置保留。auto 对操作进行审查，并非无条件放行。此前 3 月 24 日研究预览、7 月 10 日正式可用。",
+      "status": "默认设置调整",
+      "sources": [
+        {
+          "label": "Claude 官方｜Auto mode becomes the default",
+          "url": "https://claude.com/resources/articles/auto-mode-default-in-claude-code"
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "date": "2026-06-02",
+      "title": "发布作品，复用方法",
+      "summary": "从本次完成，到下次接着用",
+      "detail": "课堂的两个可见成果：把网页发布成可访问链接；把成功流程沉淀为可复用能力。对应两次具体产品更新，不表示发布网站或工作流复用在此时首次出现。",
+      "status": "产品功能落地",
+      "sources": [],
+      "dateLabel": "2026.06.02 / 06.18",
+      "children": [
+        "sites",
+        "record-replay"
+      ],
+      "related": [
+        "builders",
+        "connections",
+        "case"
+      ]
+    },
+    {
+      "id": "sites",
+      "date": "2026-06-02",
+      "title": "Sites 在 Codex app 中预览",
+      "summary": "制作并发布网站",
+      "detail": "将网站制作与部署接入 app，便于把课堂作品交付为可访问的网站。",
+      "status": "预览",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        },
+        {
+          "label": "OpenAI 官方｜Sites 使用说明",
+          "url": "https://learn.chatgpt.com/docs/skills/sites"
+        }
+      ]
+    },
+    {
+      "id": "record-replay",
+      "date": "2026-06-18",
+      "title": "Record & Replay 在 macOS 推出",
+      "summary": "把演示流程转为 Skill",
+      "detail": "记录浏览器中的工作演示，转成可复用的 Skill。首发为 macOS，不能写成当天所有平台都已提供。",
+      "status": "macOS 发布",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜ChatGPT & Codex 更新日志",
+          "url": "https://learn.chatgpt.com/docs/changelog"
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "date": "2026-09-10",
+      "title": "持续推进一个项目",
+      "summary": "共享上下文，协调重复工作",
+      "detail": "Cursor Projects 开始逐步开放 beta：协调代理组织其他代理，项目保留长期共享上下文，在云端执行，并支持定时或外部信号触发重复工作。用户围绕项目目标持续验收。",
+      "status": "Beta · 逐步开放",
+      "sources": [
+        {
+          "label": "Cursor 官方｜Introducing Projects",
+          "url": "https://cursor.com/blog/projects"
+        }
+      ],
+      "related": [
+        "teams",
+        "automations",
+        "cloud-work",
+        "case"
+      ]
+    },
+    {
+      "id": "case",
+      "date": "2026-10-31",
+      "title": "让真实作品收尾",
+      "summary": "HackerTube：从预言到实践",
+      "detail": "Karpathy 记录用 Claude Code 约两小时制作并上线 HackerTube 的过程，也列出自己处理的密钥、服务器和域名步骤。这是资深实践者自述，不能当作新手时间保证。",
+      "status": "实践自述",
+      "sources": [
+        {
+          "label": "Karpathy 本人｜HackerTube",
+          "url": "https://karpathy.bearblog.dev/hacker-tube/"
+        }
+      ],
+      "children": [
+        "x-case"
+      ],
+      "related": [
+        "prophecy",
+        "naming",
+        "delivery"
+      ]
+    },
+    {
+      "id": "x-case",
+      "date": "2026-11-04",
+      "title": "X 团队公开 AI 辅助网站重构实践",
+      "summary": "团队工程案例",
+      "detail": "X 工程团队分享使用 Claude Code、Codex 等代理进行网站重构的过程。作为公司自述案例，重点讨论组织任务和验证结果，不把其效率直接推广为行业平均水平。",
+      "status": "工程团队自述",
+      "sources": [
+        {
+          "label": "X 官方工程博客｜Rebuilding the global town square",
+          "url": "https://blog.x.com/en/engineering/rebuilding-the-global-town-square-from-scratch"
+        }
+      ]
+    },
+    {
+      "id": "connections",
+      "date": "2024-11-25",
+      "title": "连接工具，保存方法",
+      "summary": "MCP → Skills → 工作流复用",
+      "detail": "工具与模型之间需要连接，成功经验也需要保存。MCP 和 Skills 分别对应两类能力，下列日期分别记录。",
+      "status": "能力基础",
+      "sources": [],
+      "band": "b",
+      "children": [
+        "mcp",
+        "skills"
+      ],
+      "related": [
+        "delivery",
+        "qwen"
+      ]
+    },
+    {
+      "id": "mcp",
+      "date": "2024-11-25",
+      "title": "Model Context Protocol 发布",
+      "summary": "连接外部工具与数据",
+      "detail": "提供连接 AI 应用与外部工具、数据源的开放协议，帮助模型获得工作所需上下文。",
+      "status": "开放协议",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Introducing MCP",
+          "url": "https://www.anthropic.com/news/model-context-protocol"
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "date": "2025-10-16",
+      "title": "Agent Skills 发布",
+      "summary": "将方法打包复用",
+      "detail": "将指令、脚本与资源组织为可复用能力；与连接外部工具的协议分别理解。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Claude 官方｜Agent Skills",
+          "url": "https://claude.com/blog/skills"
+        }
+      ]
+    },
+    {
+      "id": "personal-agent",
+      "date": "2026-01-29",
+      "title": "个人代理出圈",
+      "summary": "Cowork / OpenClaw 的背景",
+      "detail": "通用个人代理把任务交办带到文件、办公与聊天入口。OpenClaw 的编程用途只是其中一部分；“爆红”保留为 1 月下旬的观察，不设虚构的爆红首日。",
+      "status": "通用代理背景",
+      "sources": [],
+      "band": "b",
+      "dateLabel": "2026.01 · 背景补充",
+      "children": [
+        "cowork-preview",
+        "openclaw"
+      ],
+      "related": [
+        "cloud-work",
+        "desktop"
+      ]
+    },
+    {
+      "id": "cowork-preview",
+      "date": "2026-01-12",
+      "title": "Cowork 研究预览",
+      "summary": "向文件与办公任务扩展",
+      "detail": "首批面向 macOS 上的 Max 用户；4 月 9 日转为正式可用。不要把两个开放阶段合为同一天。",
+      "status": "研究预览",
+      "sources": [
+        {
+          "label": "Claude 官方｜发布日志",
+          "url": "https://support.claude.com/en/articles/12138966-release-notes"
+        }
+      ]
+    },
+    {
+      "id": "openclaw",
+      "date": "2026-01-29",
+      "title": "Introducing OpenClaw 更名公告",
+      "summary": "个人代理受到关注",
+      "detail": "创始人博客公告为 1 月 29 日；官方历史文档把最终迁移记为 1 月 30 日。按“1 月下旬出圈”描述热度，不把访问量或 GitHub 星标等同实际用户数。",
+      "status": "公告／迁移日期有别",
+      "sources": [
+        {
+          "label": "OpenClaw 创始人公告",
+          "url": "https://openclaw.ai/blog/introducing-openclaw"
+        },
+        {
+          "label": "OpenClaw 官方历史记录",
+          "url": "https://docs.openclaw.ai/start/lore"
+        }
+      ]
+    },
+    {
+      "id": "cloud-work",
+      "date": "2026-07-07",
+      "title": "跨设备继续工作",
+      "summary": "Cowork：网页、手机与云端",
+      "detail": "Cowork 开始从 Max 用户分批推出 web/mobile/cloud beta；定时任务可以在没有设备在线时运行。云端执行更早已有，这里记录通用代理产品的扩展。",
+      "status": "Beta · 逐步开放",
+      "sources": [
+        {
+          "label": "Claude 官方｜Cowork on web and mobile",
+          "url": "https://claude.com/resources/articles/cowork-web-mobile"
+        }
+      ],
+      "band": "b",
+      "children": [
+        "cowork-merge"
+      ],
+      "related": [
+        "projects",
+        "personal-agent"
+      ]
+    },
+    {
+      "id": "cowork-merge",
+      "date": "2026-09-16",
+      "title": "Cowork 与聊天开始合并",
+      "summary": "减少模式切换",
+      "detail": "Claude 开始把聊天与交办任务合为一个体验，分批推出，不表示所有用户当天全部切换。",
+      "status": "逐步推出",
+      "sources": [
+        {
+          "label": "Claude 官方｜Cowork and chat are now one Claude",
+          "url": "https://claude.com/resources/articles/cowork-is-now-claude"
+        }
+      ]
+    },
+    {
+      "id": "gpt4",
+      "date": "2023-03-14",
+      "title": "GPT-4 发布",
+      "summary": "",
+      "detail": "增强复杂指令、推理和代码处理能力；作为 2023 年的模型基础节点。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜GPT-4",
+          "url": "https://openai.com/index/gpt-4-research/"
+        }
+      ],
+      "shortName": "GPT-4"
+    },
+    {
+      "id": "gpt5",
+      "date": "2025-08-07",
+      "title": "GPT-5 发布",
+      "summary": "",
+      "detail": "强化代码生成、理解代码库和多步工具任务。此处记录模型在开发者平台的发布日期。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜GPT-5 for developers",
+          "url": "https://openai.com/index/introducing-gpt-5-for-developers/"
+        }
+      ],
+      "shortName": "GPT-5"
+    },
+    {
+      "id": "gpt6-astra",
+      "date": "2026-09-03",
+      "title": "GPT-6 Astra 开始分批开放",
+      "summary": "",
+      "detail": "覆盖软件工程、电脑操作与复杂多步工作。首发先面向少量组织，再扩大开放；本条记录首发状态。",
+      "status": "有限范围开放",
+      "sources": [
+        {
+          "label": "OpenAI 官方｜GPT-6 Astra",
+          "url": "https://openai.com/index/gpt-6-astra/"
+        },
+        {
+          "label": "OpenAI 官方｜ChatGPT 发布日志",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        }
+      ],
+      "shortName": "GPT-6 Astra"
+    },
+    {
+      "id": "claude35",
+      "date": "2024-06",
+      "title": "Claude 3.5 Sonnet 与 Artifacts",
+      "summary": "",
+      "detail": "增强代码和视觉理解，同期研究预览 Artifacts；日期保守记到月。",
+      "status": "模型发布／功能预览",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Claude 3.5 Sonnet",
+          "url": "https://www.anthropic.com/news/claude-3-5-sonnet"
+        }
+      ],
+      "shortName": "Claude 3.5"
+    },
+    {
+      "id": "claude4",
+      "date": "2025-05-22",
+      "title": "Claude Opus 4 / Sonnet 4 发布",
+      "summary": "",
+      "detail": "强化编程、推理与持续执行任务；同期 Claude Code 正式可用。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Introducing Claude 4",
+          "url": "https://www.anthropic.com/news/claude-4"
+        }
+      ],
+      "shortName": "Claude 4"
+    },
+    {
+      "id": "claude46",
+      "date": "2026-02-05",
+      "title": "Claude Opus 4.6 发布",
+      "summary": "",
+      "detail": "增强复杂编程和长任务能力；同日 Claude Code 的 agent teams 属研究预览，勿混淆两者状态。",
+      "status": "模型发布",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Opus 4.6",
+          "url": "https://www.anthropic.com/news/claude-opus-4-6"
+        }
+      ],
+      "shortName": "Opus 4.6"
+    },
+    {
+      "id": "claude55",
+      "date": "2026-09-22",
+      "title": "Claude Opus 5.5 发布",
+      "summary": "",
+      "detail": "面向复杂编程与专业工作。Opus 5.5 是 Claude 5.5 系列首个发布模型。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Anthropic 官方｜Claude Opus 5.5",
+          "url": "https://www.anthropic.com/claude-opus-5-5"
+        }
+      ],
+      "shortName": "Opus 5.5"
+    },
+    {
+      "id": "gemini25",
+      "date": "2025-03-25",
+      "title": "Gemini 2.5 Pro Experimental",
+      "summary": "",
+      "detail": "首发为实验版思考模型，面向推理和代码任务；不能把该日写成稳定版 GA。",
+      "status": "Experimental",
+      "sources": [
+        {
+          "label": "Google 官方｜Gemini 2.5",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/"
+        }
+      ],
+      "shortName": "Gemini 2.5"
+    },
+    {
+      "id": "gemini35",
+      "date": "2026-05-19",
+      "title": "Gemini 3.5 Flash 正式可用",
+      "summary": "",
+      "detail": "面向复杂代理流程与长时程编程；当天首发 Flash，公告中的 Pro 为后续计划。",
+      "status": "GA",
+      "sources": [
+        {
+          "label": "Google 官方｜Gemini 3.5",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+        }
+      ],
+      "shortName": "Gemini 3.5"
+    },
+    {
+      "id": "deepseek-r1",
+      "date": "2025-01-20",
+      "title": "DeepSeek-R1 发布",
+      "summary": "",
+      "detail": "推理模型上线并提供 API，成为国产开放模型的重要节点。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "DeepSeek 官方｜历史更新日志",
+          "url": "https://api-docs.deepseek.com/zh-cn/updates/"
+        }
+      ],
+      "shortName": "DeepSeek R1"
+    },
+    {
+      "id": "deepseek-v4",
+      "date": "2026-04-24",
+      "title": "DeepSeek V4 系列公开预览",
+      "summary": "",
+      "detail": "V4-Pro 与 V4-Flash 已可在网页、App、API 使用并开放权重。V4-Pro 为 1.6T 总参数／49B 激活；这一规模不能套用整个系列。",
+      "status": "Preview · 开放权重",
+      "sources": [
+        {
+          "label": "DeepSeek 官方｜V4 Preview",
+          "url": "https://www.deepseek.com/news/v4-preview/"
+        },
+        {
+          "label": "DeepSeek 官方模型卡｜V4-Pro",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/README.md"
+        }
+      ],
+      "shortName": "DeepSeek V4"
+    },
+    {
+      "id": "deepseek-v4-ga",
+      "date": "2026-08-13",
+      "title": "DeepSeek V4-Pro 正式版",
+      "summary": "",
+      "detail": "V4-Pro 转为正式版，更新网页、App 和 API；并非整个 V4 系列首次公开。",
+      "status": "V4-Pro GA",
+      "sources": [
+        {
+          "label": "DeepSeek 官方｜更新日志，2026-08-13",
+          "url": "https://api-docs.deepseek.com/zh-cn/updates/"
+        }
+      ],
+      "shortName": "V4-Pro GA"
+    },
+    {
+      "id": "minimax-m2",
+      "date": "2025-10-27",
+      "title": "MiniMax M2 与 Agent 发布",
+      "summary": "",
+      "detail": "文字交互与工具调用，重点面向拆解需求、连续操作工具和制作应用。",
+      "status": "发布 · 开放模型",
+      "sources": [
+        {
+          "label": "MiniMax 官方｜M2 & Agent",
+          "url": "https://www.minimax.io/news/minimax-m2"
+        }
+      ],
+      "shortName": "MiniMax M2"
+    },
+    {
+      "id": "minimax-m25",
+      "date": "2026-02-12",
+      "title": "MiniMax M2.5 发布",
+      "summary": "",
+      "detail": "增强网页搜索和办公交付，如文档、演示、表格；文件成果由配套工具生成。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "MiniMax 官方｜M2.5",
+          "url": "https://www.minimax.io/news/minimax-m25"
+        }
+      ],
+      "shortName": "MiniMax M2.5"
+    },
+    {
+      "id": "minimax-m3",
+      "date": "2026-06-01",
+      "title": "MiniMax M3 上线",
+      "summary": "",
+      "detail": "加入图片、视频理解与桌面操作，面向搜索和办公任务。上线产品与 API；公告当天的权重开放属于随后计划，不能倒写为当日完成。",
+      "status": "产品与 API 上线",
+      "sources": [
+        {
+          "label": "MiniMax 官方｜M3",
+          "url": "https://www.minimax.io/blog/minimax-m3"
+        }
+      ],
+      "shortName": "MiniMax M3"
+    },
+    {
+      "id": "glm46",
+      "date": "2025-09-30",
+      "title": "GLM-4.6 发布",
+      "summary": "",
+      "detail": "强化工具使用、编程和任务处理，官方发布日为 2025 年 9 月 30 日。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Z.ai 官方｜GLM-4.6",
+          "url": "https://z.ai/blog/glm-4.6"
+        }
+      ],
+      "shortName": "GLM-4.6"
+    },
+    {
+      "id": "glm52",
+      "date": "2026-06-16",
+      "title": "GLM-5.2 发布",
+      "summary": "",
+      "detail": "面向长时程任务与长上下文。官方仓库列 744B 总参数／40B 激活参数，即 7440 亿／400 亿。官网公告为 6 月 16 日，官方 Hugging Face 转载为次日。",
+      "status": "发布 · 开放权重",
+      "sources": [
+        {
+          "label": "智谱官方｜GLM-5.2 发布",
+          "url": "https://www.zhipuai.cn/zh/research/161"
+        },
+        {
+          "label": "Z.ai 官方仓库｜模型参数表",
+          "url": "https://github.com/zai-org/GLM-5/blob/main/README.md"
+        }
+      ],
+      "shortName": "GLM-5.2"
+    },
+    {
+      "id": "qwen3",
+      "date": "2025-04-29",
+      "title": "Qwen3 发布",
+      "summary": "",
+      "detail": "同一模型可切换快速回答与深入思考，按任务复杂程度选择处理方式。",
+      "status": "发布 · 开放权重",
+      "sources": [
+        {
+          "label": "Qwen 官方｜Qwen3",
+          "url": "https://qwenlm.github.io/blog/qwen3/"
+        }
+      ],
+      "shortName": "Qwen3"
+    },
+    {
+      "id": "qwen3-coder",
+      "date": "2025-07-22",
+      "title": "Qwen3-Coder 与 Qwen Code",
+      "summary": "",
+      "detail": "面向需要连续行动的编程任务，模型配合 Qwen Code 操作项目和工具。",
+      "status": "发布",
+      "sources": [
+        {
+          "label": "Qwen 官方｜Qwen3-Coder",
+          "url": "https://qwenlm.github.io/blog/qwen3-coder/"
+        }
+      ],
+      "shortName": "Qwen3-Coder"
+    },
+    {
+      "id": "qwen35",
+      "date": "2026-02",
+      "title": "Qwen3.5 发布",
+      "summary": "",
+      "detail": "原生处理文字、图片与视频，结合视觉理解、推理和任务执行。官方博客与仓库记载存在 2 月 15／16 日差异，故保守记到月。",
+      "status": "发布 · 月级记录",
+      "sources": [
+        {
+          "label": "Qwen 官方｜Qwen3.5",
+          "url": "https://qwen.ai/blog?id=qwen3.5"
+        },
+        {
+          "label": "Qwen 官方模型卡｜Qwen3.5",
+          "url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+        }
+      ],
+      "shortName": "Qwen3.5"
+    },
+    {
+      "id": "kimi-k2",
+      "date": "2025-07-11",
+      "title": "Kimi K2 发布",
+      "summary": "",
+      "detail": "文字模型加强自主工具使用，可按目标安排搜索、分析和应用制作。",
+      "status": "发布 · 开放模型",
+      "sources": [
+        {
+          "label": "Kimi 官方｜K2",
+          "url": "https://www.kimi.com/en/blog/kimi-k2"
+        },
+        {
+          "label": "Kimi 官方｜研究日期索引",
+          "url": "https://www.kimi.com/en/blog/"
+        }
+      ],
+      "shortName": "Kimi K2"
+    },
+    {
+      "id": "kimi-k25",
+      "date": "2026-01-27",
+      "title": "Kimi K2.5 发布",
+      "summary": "",
+      "detail": "加入图片、视频理解，可按视觉参考制作界面；引入自动组织的多代理集群。模型开放，集群当日为 Beta。",
+      "status": "模型发布／集群 Beta",
+      "sources": [
+        {
+          "label": "Kimi 官方｜K2.5",
+          "url": "https://www.kimi.com/en/blog/kimi-k2-5"
+        }
+      ],
+      "shortName": "Kimi K2.5"
+    },
+    {
+      "id": "kimi-k3",
+      "date": "2026-07-16",
+      "title": "Kimi K3 上线产品与 API",
+      "summary": "",
+      "detail": "结合更长材料和视觉信息处理多步工作。7 月 16 日上线产品与 API，完整权重 7 月 27 日开放，两个日期分开记。",
+      "status": "产品与 API 上线",
+      "sources": [
+        {
+          "label": "Kimi 官方｜K3",
+          "url": "https://www.kimi.com/en/blog/kimi-k3"
+        },
+        {
+          "label": "Kimi 官方帮助｜权重开放说明",
+          "url": "https://www.kimi.com/help/agent/agent-overview"
+        }
+      ],
+      "shortName": "Kimi K3"
+    },
+    {
+      "id": "seedance1",
+      "date": "2025-06-11",
+      "title": "Seedance 1.0 技术报告公开",
+      "summary": "",
+      "detail": "文字或图片输入生成多镜头视频；这里记录官方公告与技术报告公开日，不推断更早灰度体验日。",
+      "status": "官方公告",
+      "sources": [
+        {
+          "label": "字节 Seed 官方｜Seedance 1.0",
+          "url": "https://seed.bytedance.com/zh/blog/tech-report-of-seedance-1-0-is-now-publicly-available"
+        }
+      ],
+      "shortName": "Seedance 1.0"
+    },
+    {
+      "id": "seedance2",
+      "date": "2026-02-12",
+      "title": "Seedance 2.0 正式发布",
+      "summary": "",
+      "detail": "文字、图片、音频、视频可作为参考，联合生成带声音的多镜头视频，并支持延长与编辑。",
+      "status": "正式发布公告",
+      "sources": [
+        {
+          "label": "字节 Seed 官方｜Seedance 2.0",
+          "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0"
+        }
+      ],
+      "shortName": "Seedance 2.0"
+    },
+    {
+      "id": "seedance25",
+      "date": "2026-07-31",
+      "title": "Seedance 2.5 发布",
+      "summary": "",
+      "detail": "单次生成 30 秒音视频，支持延长和按时间位置编辑。开始在产品中上线；公告当日 API 仍为即将提供。",
+      "status": "产品开始上线",
+      "sources": [
+        {
+          "label": "字节 Seed 官方｜Seedance 2.5",
+          "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+        }
+      ],
+      "shortName": "Seedance 2.5"
+    },
+    {
+      "id": "jev-early",
+      "date": "2026-09-15",
+      "title": "Jev 开放早期访问",
+      "summary": "",
+      "detail": "输入状态和带类型的问题，直接返回类型值与概率分布，部分类型还返回置信度。可以给软件增加判断步骤，与生成网页、文案、视频的模型用途不同。",
+      "status": "Early access",
+      "sources": [
+        {
+          "label": "TypeSafe 官方｜Introducing System One Models & Jev",
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
+        },
+        {
+          "label": "TypeSafe 官方文档｜Introduction",
+          "url": "https://docs.typesafe.ai/introduction"
+        }
+      ],
+      "shortName": "Jev"
+    },
+    {
+      "id": "era-foundation",
+      "date": "2021-06-29",
+      "endDate": "2022-11-30",
+      "title": "补全与对话",
+      "summary": "从补一行代码，到用语言提需求",
+      "detail": "把编程补全与对话入口合并为前史。点击查看两次产品发布的独立日期与来源。",
+      "status": "同期合并",
+      "dateLabel": "2021.06—2022.11",
+      "children": [
+        "copilot",
+        "chatgpt"
+      ],
+      "modelIds": [],
+      "related": [],
+      "band": "b",
+      "merged": true
+    },
+    {
+      "id": "era-prophecy",
+      "date": "2023-01",
+      "endDate": "2023-03-14",
+      "title": "自然语言的预言",
+      "summary": "自然语言表达需求，模型能力跟进",
+      "detail": "Karpathy 的观点与 GPT-4 放在同一期讲述：一个解释工作方式，一个提供模型能力。二者日期分别记录。",
+      "status": "同期合并",
+      "dateLabel": "2023.01—03",
+      "children": [
+        "prophecy",
+        "gpt4"
+      ],
+      "modelIds": [
+        "gpt4"
+      ],
+      "related": [
+        "gpt"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-artifacts",
+      "date": "2024-06",
+      "endDate": "2024-06-30",
+      "title": "看着作品改需求",
+      "summary": "Artifacts：从代码到可见作品",
+      "detail": "Claude 3.5 Sonnet 与同期 Artifacts 合并展示，分别解释模型升级和可见作品工作区。日期保留到月。",
+      "status": "同期合并",
+      "dateLabel": "2024.06",
+      "children": [
+        "artifacts",
+        "claude35"
+      ],
+      "modelIds": [
+        "claude35"
+      ],
+      "related": [
+        "claude"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-builders",
+      "date": "2024-09",
+      "endDate": "2024-12-10",
+      "title": "生成、运行、上线",
+      "summary": "应用生成器出现，工具开始互联",
+      "detail": "Replit Agent、Bolt.new、Lovable 与 MCP 按秋冬发布节奏合并。展开后区分应用生成、正式开放和工具连接协议。",
+      "status": "同期合并",
+      "dateLabel": "2024.09—12",
+      "children": [
+        "replit",
+        "bolt",
+        "lovable",
+        "mcp",
+        "replit-ga"
+      ],
+      "modelIds": [],
+      "related": [],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-naming",
+      "date": "2025-01-20",
+      "endDate": "2025-02-28",
+      "title": "命名与推理突破",
+      "summary": "Vibe Coding 有了名字，R1 提供新选择",
+      "detail": "把 DeepSeek-R1 与 Vibe Coding 命名放进同一期。模型发布与工作方式命名各有来源，不将前后发生理解为单一因果。",
+      "status": "同期合并",
+      "dateLabel": "2025.01—02",
+      "children": [
+        "naming",
+        "deepseek-r1"
+      ],
+      "modelIds": [
+        "deepseek-r1"
+      ],
+      "related": [
+        "deepseek"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-agents",
+      "date": "2025-02-24",
+      "endDate": "2025-05-22",
+      "title": "交给代理一个任务",
+      "summary": "读文件、修改代码，再运行检查",
+      "detail": "Claude Code、Codex 的工具落地与同期 Gemini、Qwen、Claude 模型迭代合并。具体研究预览、CLI 和正式开放日期分别列出。",
+      "status": "同期合并",
+      "dateLabel": "2025.02—05",
+      "children": [
+        "cc-preview",
+        "codex-cli",
+        "codex-cloud",
+        "cc-ga",
+        "gemini25",
+        "qwen3",
+        "claude4"
+      ],
+      "modelIds": [
+        "gemini25",
+        "qwen3",
+        "claude4"
+      ],
+      "related": [
+        "gemini",
+        "qwen",
+        "claude"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-model-wave",
+      "date": "2025-06-11",
+      "endDate": "2025-10-27",
+      "title": "模型与方法变丰富",
+      "summary": "通用、编程、视频形成多种选择",
+      "detail": "将 2025 年中到秋季的模型发布合并为一个节点，同时放入 Skills 的方法复用节点。各模型并非同日发布，也不以参数或榜单排名作统一比较。",
+      "status": "同期合并",
+      "dateLabel": "2025.06—10",
+      "children": [
+        "skills",
+        "seedance1",
+        "kimi-k2",
+        "qwen3-coder",
+        "gpt5",
+        "glm46",
+        "minimax-m2"
+      ],
+      "modelIds": [
+        "seedance1",
+        "kimi-k2",
+        "qwen3-coder",
+        "gpt5",
+        "glm46",
+        "minimax-m2"
+      ],
+      "related": [
+        "seedance",
+        "kimi",
+        "qwen",
+        "gpt",
+        "glm",
+        "minimax"
+      ],
+      "band": "r",
+      "merged": true,
+      "featuredModelIds": [
+        "gpt5",
+        "kimi-k2",
+        "glm46"
+      ]
+    },
+    {
+      "id": "era-desktop",
+      "date": "2026-01-12",
+      "endDate": "2026-02-05",
+      "title": "桌面入口与多代理",
+      "summary": "集中派活，多名代理开始分工",
+      "detail": "把 Cowork、OpenClaw、Codex app、agent teams 与 Kimi K2.5、Opus 4.6 放进相邻时期。工具、模型和预览功能分别标记；Windows 版另列在 3—4 月节点。",
+      "status": "同期合并",
+      "dateLabel": "2026.01—02 初",
+      "children": [
+        "cowork-preview",
+        "openclaw",
+        "desktop",
+        "teams",
+        "kimi-k25",
+        "claude46"
+      ],
+      "modelIds": [
+        "kimi-k25",
+        "claude46"
+      ],
+      "related": [
+        "kimi",
+        "claude"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-february",
+      "date": "2026-02",
+      "endDate": "2026-02-28",
+      "title": "长任务与多模态",
+      "summary": "持续执行，视觉与音视频能力扩展",
+      "detail": "Cursor 的长任务与 MiniMax、Qwen、Seedance 的 2 月更新合并。它们各有用途：办公与工具执行、视觉理解、音视频生成；月级日期不推断为同一天。",
+      "status": "同期合并",
+      "dateLabel": "2026.02",
+      "children": [
+        "long-tasks",
+        "minimax-m25",
+        "qwen35",
+        "seedance2"
+      ],
+      "modelIds": [
+        "minimax-m25",
+        "qwen35",
+        "seedance2"
+      ],
+      "related": [
+        "minimax",
+        "qwen",
+        "seedance"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-automation",
+      "date": "2026-03-04",
+      "endDate": "2026-04-24",
+      "title": "自动开工并验证",
+      "summary": "条件触发，操作界面，检查结果",
+      "detail": "从 Windows 桌面入口、自动触发，到电脑和浏览器操作，再到 V4 系列预览，按 3—4 月顺序展开。各更新代表产品落地，不表示相关技术首次出现。",
+      "status": "同期合并",
+      "dateLabel": "2026.03—04",
+      "children": [
+        "codex-windows",
+        "automations",
+        "computer",
+        "codex-computer",
+        "codex-browser",
+        "deepseek-v4"
+      ],
+      "modelIds": [
+        "deepseek-v4"
+      ],
+      "related": [
+        "deepseek"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-delivery",
+      "date": "2026-05-19",
+      "endDate": "2026-06-18",
+      "title": "长任务走向交付",
+      "summary": "发布网页，把成功流程保存下来",
+      "detail": "将 Goal mode、Sites、Record & Replay 与同期 Gemini、MiniMax、GLM 更新合并。重点看持续执行、交付与复用；系统和开放状态在条目中注明。",
+      "status": "同期合并",
+      "dateLabel": "2026.05—06",
+      "children": [
+        "goal-mode",
+        "sites",
+        "record-replay",
+        "gemini35",
+        "minimax-m3",
+        "glm52"
+      ],
+      "modelIds": [
+        "gemini35",
+        "minimax-m3",
+        "glm52"
+      ],
+      "related": [
+        "gemini",
+        "minimax",
+        "glm"
+      ],
+      "band": "t",
+      "merged": true
+    },
+    {
+      "id": "era-cloud",
+      "date": "2026-07-07",
+      "endDate": "2026-07-31",
+      "title": "跨设备与多模态",
+      "summary": "任务继续跑，长材料与音视频接力",
+      "detail": "Cowork 的云端接续，与 Kimi K3、Seedance 2.5 在同一月出现。点击查看各自的产品上线、权重开放和 API 状态。",
+      "status": "同期合并",
+      "dateLabel": "2026.07",
+      "children": [
+        "cloud-work",
+        "kimi-k3",
+        "seedance25"
+      ],
+      "modelIds": [
+        "kimi-k3",
+        "seedance25"
+      ],
+      "related": [
+        "kimi",
+        "seedance"
+      ],
+      "band": "b",
+      "merged": true
+    },
+    {
+      "id": "era-projects",
+      "date": "2026-08-13",
+      "endDate": "2026-09-22",
+      "title": "持续推进一个项目",
+      "summary": "长期上下文、权限审查与决策能力",
+      "detail": "将 V4-Pro 正式版、auto 权限默认调整、Cursor Projects、GPT-6 Astra、Jev、Opus 5.5 与 Claude 体验合并按日期展开。重点理解持续项目和能力分工，保留有限开放、Beta 和 Early access 的边界。",
+      "status": "同期合并",
+      "dateLabel": "2026.08—09",
+      "children": [
+        "auto-mode",
+        "projects",
+        "cowork-merge",
+        "deepseek-v4-ga",
+        "gpt6-astra",
+        "jev-early",
+        "claude55"
+      ],
+      "modelIds": [
+        "deepseek-v4-ga",
+        "gpt6-astra",
+        "jev-early",
+        "claude55"
+      ],
+      "related": [
+        "deepseek",
+        "gpt",
+        "jev",
+        "claude"
+      ],
+      "band": "t",
+      "merged": true,
+      "featuredModelIds": [
+        "gpt6-astra",
+        "claude55",
+        "jev-early"
+      ]
+    },
+    {
+      "id": "era-case",
+      "date": "2026-10-31",
+      "endDate": "2026-11-04",
+      "title": "让真实作品收尾",
+      "summary": "个人作品与团队工程，都要验收",
+      "detail": "用 HackerTube 与 X 工程实践收尾。两项都是实践者或团队自述，展开查看制作过程、验证责任与原始来源。",
+      "status": "同期合并",
+      "dateLabel": "2026.10.31—11.04",
+      "children": [
+        "case",
+        "x-case"
+      ],
+      "modelIds": [],
+      "related": [],
+      "band": "t",
+      "merged": true
+    }
+  ],
+  "families": [
+    {
+      "id": "gpt",
+      "name": "GPT",
+      "scope": "通用 · 编程",
+      "description": "OpenAI 模型家族。模型提供能力，ChatGPT、Codex 等产品组织交互和执行；同一家族也有不同任务定位。",
+      "events": [
+        "gpt4",
+        "gpt5",
+        "gpt6-astra"
+      ]
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "scope": "编程 · 工具操作",
+      "description": "Anthropic 模型家族。Claude 模型与 Claude Code 工具分别发布；以下选择从可见作品到复杂任务的代表节点。",
+      "events": [
+        "claude35",
+        "claude4",
+        "claude46",
+        "claude55"
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "scope": "多模态 · 推理",
+      "description": "Google 模型家族，结合多模态理解、推理和代码能力。实验版本与正式版本分开记。",
+      "events": [
+        "gemini25",
+        "gemini35"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "scope": "推理 · 开放权重",
+      "description": "保留 R1 的推理节点，以及 V4 的预览和正式版差别。总参数、激活参数与模型变体需要分别理解。",
+      "events": [
+        "deepseek-r1",
+        "deepseek-v4",
+        "deepseek-v4-ga"
+      ]
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "scope": "任务执行 · 视觉",
+      "description": "MiniMax 的 M 系列侧重模型与任务执行；海螺等视频产品属于不同模型路线。",
+      "events": [
+        "minimax-m2",
+        "minimax-m25",
+        "minimax-m3"
+      ]
+    },
+    {
+      "id": "glm",
+      "name": "GLM",
+      "scope": "编程 · 长任务",
+      "description": "智谱 / Z.ai 模型家族，侧重工具使用、编程和长任务。模型规模采用官方参数表；实际交付效果还取决于工具、任务与验证。",
+      "events": [
+        "glm46",
+        "glm52"
+      ]
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "scope": "通用 · 视觉 · 编程",
+      "description": "阿里通义千问家族。通用模型、编程模型与多模态模型各有任务方向，选型应结合要交付的作品。",
+      "events": [
+        "qwen3",
+        "qwen3-coder",
+        "qwen35"
+      ]
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "scope": "视觉 · 代理协作",
+      "description": "月之暗面模型家族。从工具调用走向视觉参考、并行协作与长流程工作；集群功能的 beta 与模型开放分别注明。",
+      "events": [
+        "kimi-k2",
+        "kimi-k25",
+        "kimi-k3"
+      ]
+    },
+    {
+      "id": "seedance",
+      "name": "Seedance",
+      "scope": "视频 · 音画生成",
+      "description": "字节跳动 Seed 的视频模型系列。它生成和编辑音视频，可以为作品提供素材；不将其写成编程语言模型。",
+      "events": [
+        "seedance1",
+        "seedance2",
+        "seedance25"
+      ]
+    },
+    {
+      "id": "jev",
+      "name": "Jev",
+      "scope": "决策 · 分类 · 评分",
+      "description": "TypeSafe AI 的结构化决策模型。把输入情况转为指定类型的判断及概率，可用于分类、路由、评分；不生成自由文本或代码。类型受约束，也仍可能判断错误。",
+      "events": [
+        "jev-early"
+      ]
+    }
+  ]
+}</script>
+<script>
+(function(){
+  'use strict';
+  const root=document.getElementById('vc-tl');
+  if(!root)return;
+  const stage=document.getElementById('tl-stage');
+  const canvas=document.getElementById('tl-canvas');
+  const data=JSON.parse(document.getElementById('tl-data').textContent);
+  const events=new Map(data.events.map(n=>[n.id,n]));
+  const families=new Map(data.families.map(n=>[n.id,n]));
+  const modelFamilies=new Map(data.families.flatMap(f=>f.events.map(id=>[id,f])));
+  const main=data.main.map(id=>events.get(id));
+  const M=64,W=1472,AX=400,SW=W/main.length;
+  const zones=[
+    {id:1,from:0,to:2,label:'① 自然语言 · 2021—23',color:'rgba(148,163,184,.05)'},
+    {id:2,from:2,to:4,label:'② 可运行作品 · 2024',color:'rgba(148,163,184,.065)'},
+    {id:3,from:4,to:7,label:'③ 任务代理 · 2025',color:'rgba(245,176,76,.055)'},
+    {id:4,from:7,to:main.length,label:'④ 能力爆发与工程化 · 2026',color:'rgba(76,195,245,.05)'}
+  ];
+  let activeId=null,lastTrigger=null,returnToNotes=null,mode=innerWidth<760?'read':'fit';
+  const panel=document.getElementById('tl-detail'),notes=document.getElementById('tl-notes');
+  function create(tag,cls,text){
+    const node=document.createElement(tag);
+    if(cls)node.className=cls;
+    if(text!==undefined)node.textContent=text;
+    return node;
+  }
+  function positioned(cls,styles){
+    const node=create('div',cls);
+    Object.assign(node.style,styles||{});
+    return node;
+  }
+  function button(cls,text,action){
+    const node=create('button',cls,text);node.type='button';
+    node.addEventListener('click',action);
+    return node;
+  }
+  function dateText(value){return value.replace(/-/g,'.');}
+  function dateNumber(value){return Date.parse(value.length===7?value+'-01':value);}
+  function zoneOf(date){const y=Number(date.slice(0,4));return y<2024?1:y===2024?2:y===2025?3:4;}
+  function xAt(index){return M+(index+.5)*SW;}
+  function setSpot(zone){
+    if(zone)root.dataset.spot=String(zone);else delete root.dataset.spot;
+    root.querySelectorAll('.tl-zone-tag').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.focus===String(zone))));
+  }
+  canvas.appendChild(positioned('tl-axis tl-fade'));
+  zones.forEach(z=>{
+    const node=positioned('tl-zone tl-fade',{left:(M+z.from*SW)+'px',width:((z.to-z.from)*SW)+'px'});
+    node.style.setProperty('--zone-color',z.color);
+    node.dataset.z=z.id;
+    const tag=button('tl-zone-tag',z.label,()=>setSpot(root.dataset.spot===String(z.id)?null:z.id));
+    tag.dataset.focus=z.id;tag.setAttribute('aria-pressed','false');node.appendChild(tag);canvas.appendChild(node);
+  });
+  function renderCard(n,x,layout){
+    const band=n.band||'t',zone=zoneOf(n.date);
+    const card=button('tl-card '+band+' tl-in cursor-interaction',undefined,()=>openDetail(n.id));
+    card.id='card-'+n.id;card.dataset.zone=zone;card.dataset.date=n.date;
+    card.style.animationDelay=(.15+layout.order*.035)+'s';
+    card.style.left=(x-95)+'px';
+    const below=layout.order%2===1;
+    const top=below?450:160;
+    card.style.top=top+'px';
+    const stemTop=below?AX+7:top+180,stemEnd=below?top:AX-7;
+    card.appendChild(create('span','card-date',n.dateLabel||dateText(n.date)));
+    card.appendChild(create('div','ct',n.title));
+    card.appendChild(create('div','cd',n.summary));
+    const models=n.modelIds||[];
+    if(models.length){
+      const chips=create('div','tl-model-chips');
+      const featured=n.featuredModelIds||models.slice(0,3);
+      featured.forEach(id=>chips.appendChild(create('span','tl-model-chip',events.get(id).shortName)));
+      if(models.length>featured.length)chips.appendChild(create('span','tl-model-chip more','＋'+(models.length-featured.length)));
+      card.appendChild(chips);
+    }
+    const hint=create('div','card-hint');
+    hint.append(create('span','',n.children.length+' 项事件'),create('span','','点击查看 ↗'));
+    card.appendChild(hint);
+    card.setAttribute('aria-label',(n.dateLabel||dateText(n.date))+'，'+n.title+'，'+n.children.length+'项事件，点击查看');
+    card.setAttribute('aria-haspopup','dialog');card.setAttribute('aria-controls','tl-detail');
+    const stem=positioned('tl-stem '+band+(below?' below':' above')+' tl-fade',{left:x+'px',top:stemTop+'px',height:(stemEnd-stemTop)+'px'});
+    stem.style.setProperty('--stem-color',band==='r'?'rgba(248,113,113,.6)':band==='b'?'rgba(76,195,245,.6)':'rgba(245,176,76,.6)');
+    stem.dataset.zone=zone;canvas.appendChild(stem);
+    const dot=positioned('tl-dot '+band+' tl-fade',{left:x+'px'});dot.dataset.zone=zone;canvas.appendChild(dot);
+    canvas.appendChild(card);
+  }
+  main.forEach((n,i)=>{
+    const x=xAt(i);
+    const tick=positioned('tl-date tl-fade',{left:x+'px'});
+    tick.textContent=n.date.slice(0,4)==='2026'?dateText(n.date).slice(5):dateText(n.date);
+    tick.dataset.zone=zoneOf(n.date);tick.dataset.date=n.date;tick.dataset.event=n.id;
+    canvas.appendChild(tick);
+    renderCard(n,x,{order:i});
+  });
+  function appendSources(parent,sources){
+    if(!sources||!sources.length)return;
+    const list=create('ul','tl-source-list');
+    sources.forEach(s=>{
+      const li=create('li'),link=create('a','',s.label+' ↗');
+      link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';
+      li.appendChild(link);list.appendChild(li);
+    });
+    parent.appendChild(list);
+  }
+  function eventList(parent,items){
+    if(!items.length)return;
+    const list=create('ol','tl-event-list');
+    [...items].sort((a,b)=>dateNumber(a.date)-dateNumber(b.date)).forEach(n=>{
+      const li=create('li');li.dataset.event=n.id;
+      const line=create('div'),time=create('time','',dateText(n.date));
+      time.dateTime=n.date;line.appendChild(time);
+      if(modelFamilies.has(n.id)){
+        li.dataset.kind='model';
+        line.appendChild(create('span','tl-kind-model',modelFamilies.get(n.id).name+' · 模型'));
+      }
+      if(n.status)line.appendChild(create('span','tl-status',n.status));
+      li.append(line,create('h4','',n.title),create('p','',n.detail));
+      appendSources(li,n.sources);list.appendChild(li);
+    });
+    parent.appendChild(list);
+  }
+  function activeButton(id){return document.getElementById('card-'+id)||document.getElementById('family-'+id);}
+  function modalDialog(){return !notes.hidden?notes:mode==='read'&&!panel.hidden?panel:null;}
+  function syncOverlayState(){
+    const modal=modalDialog();
+    root.querySelectorAll('.tl-head,.tl-canvas,.tl-quote,.tl-foot').forEach(node=>{node.inert=!!modal;});
+    panel.setAttribute('aria-modal',String(modal===panel));
+    notes.setAttribute('aria-modal',String(modal===notes));
+  }
+  function restoreFocus(node){
+    if(node&&node.isConnected&&node.getClientRects().length&&!node.closest('[hidden],[inert]'))node.focus({preventScroll:true});
+  }
+  function openDetail(id){
+    const n=events.get(id)||families.get(id);if(!n)return;
+    const wasOpen=!panel.hidden;
+    if(activeId){const previous=activeButton(activeId);if(previous)previous.classList.remove('is-active');}
+    if(!wasOpen)lastTrigger=document.activeElement;
+    activeId=id;const trigger=activeButton(id);if(trigger)trigger.classList.add('is-active');
+    notes.hidden=true;
+    const isFamily=families.has(id),isModel=isFamily||modelFamilies.has(id),isContext=n.band==='b';
+    panel.dataset.kind=isModel?'model':'event';
+    const color=isModel?'#F87171':isContext?'#4CC3F5':'#F5B04C';
+    const chip=document.getElementById('tl-dchip');chip.replaceChildren();
+    const dot=create('i');dot.style.background=color;
+    chip.append(dot,document.createTextNode(isFamily?'模型家族 · 发布年表':n.merged?'工具 × 模型 · 同期合并':isContext?'前史与通用代理':'关键能力 · 事件展开'));
+    document.getElementById('tl-dtitle').textContent=n.name||n.title;
+    document.getElementById('tl-ddate').textContent=isFamily?'代表性节点，非版本全集 · 核验截止 '+dateText(data.cutoff):(n.dateLabel||dateText(n.date))+(n.status?' · '+n.status:'');
+    document.getElementById('tl-ddesc').textContent=n.description||n.detail;
+    const timeline=document.getElementById('tl-dtimeline');timeline.replaceChildren();
+    const children=(isFamily?n.events:n.children)||[];
+    eventList(timeline,children.map(child=>events.get(child)));
+    const sources=document.getElementById('tl-dsources');sources.replaceChildren();
+    if(n.sources&&n.sources.length){sources.appendChild(create('div','tl-source-heading','原始来源'));appendSources(sources,n.sources);}
+    const rels=document.getElementById('tl-drels');rels.replaceChildren();
+    (n.related||[]).forEach(rid=>{
+      const item=events.get(rid)||families.get(rid);if(!item)return;
+      const b=button('tl-drel cursor-interaction',undefined,ev=>{ev.stopPropagation();openDetail(rid);});
+      const indicator=create('span','rr-dot');indicator.style.background=families.has(rid)?'#F87171':'#F5B04C';
+      if(families.has(rid))b.dataset.family=rid;
+      b.append(indicator,create('span','rr-title',item.name||item.title),create('span','rr-note',item.date?dateText(item.date):'模型家族'));
+      rels.appendChild(b);
+    });
+    document.getElementById('tl-drel-head').hidden=!rels.children.length;
+    panel.hidden=false;panel.scrollTop=0;syncOverlayState();
+    panel.classList.add('is-open');document.getElementById('tl-dclose').focus({preventScroll:true});
+  }
+  function closeDetail(shouldRestore=true){
+    panel.hidden=true;panel.classList.remove('is-open');
+    if(activeId){const previous=activeButton(activeId);if(previous)previous.classList.remove('is-active');}
+    activeId=null;
+    syncOverlayState();
+    if(shouldRestore)restoreFocus(lastTrigger);
+  }
+  function toggleNotes(){
+    if(notes.hidden){
+      returnToNotes=panel.hidden?document.activeElement:lastTrigger;
+      closeDetail(false);notes.hidden=false;syncOverlayState();document.getElementById('tl-notes-close').focus({preventScroll:true});
+    }else{
+      notes.hidden=true;syncOverlayState();restoreFocus(returnToNotes);
+    }
+  }
+  document.getElementById('tl-dclose').addEventListener('click',()=>closeDetail());
+  document.getElementById('tl-notes-close').addEventListener('click',toggleNotes);
+  document.getElementById('tl-notes-button').addEventListener('click',toggleNotes);
+  document.addEventListener('click',e=>{
+    if(panel.hidden||panel.contains(e.target)||e.target.closest('.tl-card,.tl-modebtn'))return;
+    closeDetail(false);
+  });
+  function fullscreen(){
+    const result=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+    if(result&&result.catch)result.catch(()=>{});
+  }
+  function applyMode(){
+    const reading=mode==='read',raw=mode==='raw';
+    root.classList.toggle('is-reading',reading);root.classList.toggle('is-raw',raw);
+    document.body.classList.toggle('tl-reading',reading);document.body.classList.toggle('tl-scroll',raw);
+    if(reading){root.style.width='';root.style.height='auto';stage.style.transform='none';}
+    else{
+      const s=raw?1:Math.min((innerWidth-32)/1600,(innerHeight-32)/900,1.6);
+      const scale=window.__TL_STANDALONE__?s:(raw?1:root.clientWidth/1600);
+      if(window.__TL_STANDALONE__)root.style.width=(1600*scale)+'px';
+      root.style.height=(900*scale)+'px';stage.style.transform='scale('+scale+')';
+    }
+    document.getElementById('tl-mode').textContent=raw?'适应屏幕 G':'原始大小 G';
+    document.getElementById('tl-reading').textContent=reading?'返回时间线 R':'阅读模式 R';
+    syncOverlayState();
+  }
+  function toggleMode(){mode=mode==='raw'?'fit':'raw';applyMode();}
+  function toggleReading(){mode=mode==='read'?'fit':'read';applyMode();}
+  document.getElementById('tl-mode').addEventListener('click',toggleMode);
+  document.getElementById('tl-reading').addEventListener('click',toggleReading);
+  document.getElementById('tl-fullscreen').addEventListener('click',fullscreen);
+  document.addEventListener('keydown',e=>{
+    const modal=modalDialog();
+    if(e.key==='Tab'&&modal){
+      const focusable=[...modal.querySelectorAll('button:not([disabled]),a[href],[tabindex="0"]')].filter(node=>node.getClientRects().length);
+      const first=focusable[0],last=focusable[focusable.length-1];
+      if(!focusable.includes(document.activeElement)||(e.shiftKey&&document.activeElement===first)){
+        e.preventDefault();if(last)last.focus();
+      }else if(!e.shiftKey&&document.activeElement===last){
+        e.preventDefault();if(first)first.focus();
+      }
+      return;
+    }
+    if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,[contenteditable="true"]'))return;
+    const key=e.key.toLowerCase();
+    if(['1','2','3','4'].includes(key)){setSpot(root.dataset.spot===key?null:key);}
+    else if(key==='escape'){
+      if(!panel.hidden)closeDetail();
+      else if(!notes.hidden)toggleNotes();
+      else setSpot(null);
+    }else if(key==='0')setSpot(null);
+    else if(key==='n')toggleNotes();
+    else if(key==='f')fullscreen();
+    else if(key==='g')toggleMode();
+    else if(key==='r')toggleReading();
+  });
+  // Drag only empty background in original-size mode; buttons and links keep normal clicks.
+  let drag=null,suppressClick=false;
+  stage.addEventListener('pointerdown',e=>{
+    if(mode!=='raw'||e.button!==0||e.target.closest('button,a,aside'))return;
+    const scroller=window.__TL_STANDALONE__?document.body:root;
+    drag={x:e.clientX,y:e.clientY,left:scroller.scrollLeft,top:scroller.scrollTop,scroller,moved:false};
+    stage.classList.add('is-drag');
+  });
+  window.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+    if(Math.abs(dx)+Math.abs(dy)>4)drag.moved=true;
+    drag.scroller.scrollLeft=drag.left-dx;drag.scroller.scrollTop=drag.top-dy;
+  });
+  window.addEventListener('pointerup',()=>{
+    if(!drag)return;
+    stage.classList.remove('is-drag');suppressClick=drag.moved;drag=null;
+    if(suppressClick)setTimeout(()=>{suppressClick=false;},0);
+  });
+  stage.addEventListener('click',e=>{if(suppressClick){e.stopPropagation();e.preventDefault();}},true);
+  if(window.__TL_STANDALONE__)window.addEventListener('resize',applyMode);
+  else if(window.ResizeObserver)new ResizeObserver(applyMode).observe(root);
+  applyMode();
+})();
+</script>
+</body>
+</html>
+

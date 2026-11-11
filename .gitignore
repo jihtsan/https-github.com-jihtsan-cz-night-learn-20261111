@@ -1,0 +1,7 @@
+# Local authoring and editor state
+/.omx/
+/.zcode/
+
+# Lesson backups and generated distribution packages
+/learn-01/备份/
+/learn-01/*.zip
