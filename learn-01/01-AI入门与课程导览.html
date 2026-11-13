@@ -205,9 +205,36 @@ details{border-top:1px solid var(--line);margin-top:26px}summary{padding:18px 2p
 </div></section>
 
 <section class="content" id="homework"><div class="wrap">
-  <div class="section-top"><span class="section-num">08</span><h2>下次课前，带来一个自己的需求</h2></div>
-  <div class="homework"><div><h3>个人提效</h3><p>我经常重复做什么？希望 AI 帮我省掉哪一段工作？</p><p class="example">例如整理会议记录、处理表格、准备汇报。</p></div><div><h3>应用创作</h3><p>我想做什么网页或小程序？给谁用，解决什么问题？</p><p class="example">例如报名页、预约工具、个人展示或内部查询。</p></div></div>
-  <p class="statement">任选一个任务，用虚构材料试一次。记录哪里好用、哪里不满意，下节课带来讨论。</p>
+  <div class="section-top"><span class="section-num">08</span><h2>课后作业：报名渠道分析与运营汇报</h2></div>
+  <p class="intro">假设你负责夜校报名页。先用 Agent 查资料、跑数据，再把结论讲给运营团队。<strong>下次课前，两题都要做，Excel 和 PPT 都要交。</strong></p>
+  <ul class="judge-list">
+    <li><a href="%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A/%E6%8A%A5%E5%90%8D%E6%B8%A0%E9%81%93%E4%BC%9A%E8%AF%9D%E6%98%8E%E7%BB%86.csv" download>下载报名渠道会话明细（40 万条）</a></li>
+    <li><a href="%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A/%E6%8A%A5%E5%90%8D%E6%A0%B7%E4%BE%8B-10%E4%B8%87%E8%A1%8C-%E5%90%AB%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86.csv" download>下载原始报名名单（10 万条）</a></li>
+  </ul>
+  <p class="note">两份 CSV 都是课堂样例。把文件放进 Agent 能读取的练习目录，先看表头和几行样例，再让它用脚本、SQL 或其他可复算的方法处理全表。聊天里只需展示汇总和少量核对样例。</p>
+  <div class="homework">
+    <article class="compare-item">
+      <h3>第 1 题：哪个渠道的报名表现最好？</h3>
+      <ul class="judge-list">
+        <li>查阅公开资料，说明平均活跃停留、报名转化率和填写完成率怎么计算，写清分母并附来源。</li>
+        <li>按渠道汇总访问、点击报名、开始填写、提交成功的会话数，以及活跃停留总秒数，再算出上述三个指标。</li>
+        <li>用报名编号关联原名单。统一手机号写法后，统计有多少号码出现在两个及以上渠道，给出两组可按编号复核的例子，并解释为什么不能把同号直接算成同一个人。</li>
+        <li>记录全量校验结果：是否处理了 40 万条会话；10 万条成功提交是否与原名单按报名编号一一对应。</li>
+      </ul>
+      <p class="example"><strong>必交 Excel（.xlsx）</strong>：包含「渠道汇总」「名单核对」「统计口径」三张表，至少两张图，分别比较成功提交数和报名转化率。附可复算的公式、脚本或步骤。</p>
+    </article>
+    <article class="compare-item">
+      <h3>第 2 题：下周只能优化一个渠道，你选哪个？</h3>
+      <ol class="judge-list">
+        <li><strong>结论：</strong>推荐一个渠道，用一句话说明理由。</li>
+        <li><strong>证据：</strong>引用 Excel 图表，指出推荐渠道在哪一步流失最多。解释为什么提交数相同的渠道，优化优先级仍可能不同。</li>
+        <li><strong>判断边界：</strong>结合活跃停留和跨渠道同号，说明现有数据能支持哪些判断，哪些原因还需要验证。</li>
+        <li><strong>下周行动：</strong>只提一项改动，写清如何做对照、看哪个主指标、达到什么条件才推广。</li>
+      </ol>
+      <p class="example"><strong>必交 4 页 PPT（.pptx）</strong>：按上面四点各做一页。建议可以不同，关键是数字能追溯到 Excel，验证计划说得清楚。</p>
+    </article>
+  </div>
+  <p class="statement"><strong>选做：</strong>带来一个自己的需求。可以是个人提效（如整理会议记录），也可以是应用创作（如报名页）。用虚构材料试一次，记下哪里好用、哪里还需改进，下次课讨论。</p>
   <p class="closing">让 AI 参与你的真实任务。<br><span>认识概念，多试多练，形成自己的判断。</span></p>
 </div></section>
 </main>
