@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Excel 与数据分析 Skill 调研 · AI 夜校</title>
+  <style>
+    :root {
+      --paper: #f6f5ee;
+      --white: #fffefa;
+      --ink: #192d26;
+      --muted: #506359;
+      --green: #245943;
+      --green-light: #e6efe6;
+      --line: #d5ddd2;
+      --warning: #8e411f;
+      --warning-bg: #fff0e3;
+      --accent: #dfefb6;
+      --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.6; }
+    a { color: var(--green); text-underline-offset: .2em; }
+    button, input { font: inherit; }
+    button, summary { cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+    [hidden] { display: none !important; }
+
+    .frame { width: min(1176px, calc(100% - 64px)); margin-inline: auto; }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      padding-block: 19px;
+      border-bottom: 1px solid var(--line);
+      font-size: .88rem;
+    }
+    .topline strong { font-weight: 720; }
+    .topline nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+    .topline a { text-decoration-thickness: 1px; }
+
+    .intro { max-width: 790px; padding: 42px 0 35px; }
+    .intro h1 {
+      font-size: clamp(2.25rem, 5vw, 3.8rem);
+      line-height: 1.16;
+      letter-spacing: -.045em;
+      margin: 0 0 15px;
+      text-wrap: balance;
+    }
+    .intro p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .intro small { display: block; margin-top: 12px; color: var(--muted); }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      align-items: start;
+      gap: 26px;
+    }
+    .skills h2 { font-size: .9rem; margin: 0 0 12px; color: var(--muted); }
+    .skills ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+    .skill-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 9px;
+      padding: 9px 11px 9px 13px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .skill-link > span { min-width: 0; }
+    .skill-link strong { display: block; font-size: .94rem; overflow-wrap: anywhere; }
+    .skill-link small { display: block; color: var(--muted); }
+    .skill-link:hover { border-color: var(--line); background: var(--white); }
+    .skill-link[aria-current="true"] { border-color: #b7c9b8; background: var(--green-light); }
+    .skill-link[aria-current="true"]::after { content: "›"; font-size: 1.4rem; line-height: 1; color: var(--green); }
+
+    #lab {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--white);
+      scroll-margin-top: 14px;
+    }
+    .lab-header {
+      padding: 23px 27px 24px;
+      background: #183c30;
+      color: var(--white);
+    }
+    .lab-header small { display: block; color: var(--accent); font-size: .8rem; font-weight: 670; }
+    .lab-header h2 {
+      margin: 3px 0 5px;
+      font-size: clamp(1.45rem, 3.5vw, 2.15rem);
+      line-height: 1.24;
+      letter-spacing: -.02em;
+      overflow-wrap: anywhere;
+    }
+    .lab-header p { margin: 0; max-width: 50em; color: #edf3eb; }
+    .lab-content { padding: 19px 26px 22px; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 15px; }
+    .mode {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 6px 12px;
+      min-height: 38px;
+      font-size: .9rem;
+      font-weight: 620;
+    }
+    .mode:hover, .mode[aria-pressed="true"] { background: var(--green-light); border-color: #9bb5a1; color: var(--green); }
+
+    .sheet {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th, td { text-align: left; padding: 7px 11px; white-space: nowrap; }
+    th { font-weight: 680; background: #edf1e9; color: var(--ink); }
+    tbody th { background: transparent; }
+    tbody tr:nth-child(even) { background: #f8f9f4; }
+    tbody tr + tr > * { border-top: 1px solid #e4e9df; }
+    td.amount, th.amount { text-align: right; font-variant-numeric: tabular-nums; }
+    td.flag { color: var(--warning); background: var(--warning-bg); font-weight: 680; }
+    td.changed { background: var(--green-light); color: var(--green); font-weight: 700; }
+    .report tbody tr:last-child { font-weight: 680; background: #edf1e9; }
+    code { font-family: var(--mono); font-size: .82em; }
+    .footnote { margin: 12px 0 0; font-size: .88rem; color: var(--muted); }
+
+    details { margin-top: 17px; border-top: 1px solid var(--line); }
+    summary { padding-top: 12px; font-size: .9rem; font-weight: 720; }
+    details p { margin: 8px 0; color: var(--muted); font-size: .91rem; }
+    .sources { display: flex; flex-wrap: wrap; gap: 6px 17px; font-size: .88rem; }
+
+    .number-control { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 11px; margin-bottom: 14px; }
+    .number-control label { font-weight: 680; }
+    .number-control input {
+      width: 125px;
+      padding: 6px 9px;
+      border: 1px solid #9bb5a1;
+      border-radius: 7px;
+      background: var(--white);
+      color: var(--ink);
+    }
+    .number-control .unit { color: var(--muted); }
+    .number-control button { margin-left: auto; }
+
+    .chart { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 9px; padding: 13px 15px; }
+    .chart figcaption { font-weight: 680; margin-bottom: 8px; }
+    .chart-row {
+      display: grid;
+      grid-template-columns: 2.4rem minmax(0, 1fr) minmax(4.7rem, auto);
+      align-items: center;
+      gap: 12px;
+      min-height: 37px;
+    }
+    .chart-row output { text-align: right; font-variant-numeric: tabular-nums; }
+    .track { position: relative; display: flex; background: #f0f1eb; height: 19px; border-radius: 3px; overflow: hidden; }
+    .track.signed::after { content: ""; position: absolute; inset: 0 50%; width: 1px; background: #536b61; }
+    .track .half { width: 50%; display: flex; }
+    .track .half:first-child { justify-content: flex-end; }
+    .bar { display: block; height: 100%; width: var(--bar-width); background: #3b785d; }
+    .bar.shortfall { background: #b26035; }
+    .chart-key { margin: 6px 0 0; color: var(--muted); font-size: .84rem; }
+
+    .classroom {
+      padding: 28px 0 35px;
+      margin-top: 31px;
+      border-top: 1px solid var(--line);
+    }
+    .classroom h2 { margin: 0 0 10px; font-size: 1.25rem; }
+    .classroom ol { margin: 0; padding-left: 1.35rem; max-width: 61em; }
+    .classroom li + li { margin-top: 5px; }
+
+    @media (max-width: 800px) {
+      .frame { width: calc(100% - 40px); }
+      .workspace { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .skills ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skill-link { border-color: var(--line); background: var(--white); }
+      .intro { padding-block: 32px 26px; }
+    }
+    @media (max-width: 440px) {
+      .frame { width: calc(100% - 28px); }
+      .lab-header, .lab-content { padding-inline: 14px; }
+      .skill-link { padding-inline: 8px; }
+      .skill-link strong { font-size: .87rem; }
+      .skill-link small { font-size: .77rem; }
+      .number-control button { margin-left: 0; }
+      .chart { padding-inline: 9px; }
+      .chart-row { gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header class="topline">
+      <strong>AI 夜校 · 第 2 课</strong>
+      <nav aria-label="课程资料">
+        <a href="./课堂练习/第二课课堂练习%20-%20门店销售报表.xlsx">课堂练习 Excel</a>
+        <a href="./Excel%20与数据分析%20Skill%20调研.md">调研原文</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="intro">
+        <h1>Excel 与数据分析 Skill</h1>
+        <p>选一个 Skill，看它会怎样处理门店日报。试着切换工作表、改指标数字，或按不同维度分析数据。</p>
+        <small>资料核对于 2026 年 11 月 18 日。页面用独立样表在浏览器中模拟工作流程。</small>
+      </div>
+
+      <div class="workspace">
+        <nav class="skills" aria-labelledby="skill-list-title">
+          <h2 id="skill-list-title">选一个 Skill</h2>
+          <ul>
+            <li><a class="skill-link" href="#workbuddy"><span><strong>WorkBuddy XLSX</strong><small>从原表到汇总表</small></span></a></li>
+            <li><a class="skill-link" href="#codex"><span><strong>Codex Spreadsheets</strong><small>改数据，公式跟着算</small></span></a></li>
+            <li><a class="skill-link" href="#sensenova"><span><strong>商汤 SenseNova</strong><small>按门店、地区或品类看</small></span></a></li>
+            <li><a class="skill-link" href="#minimax"><span><strong>MiniMax XLSX</strong><small>只改模板中的一格</small></span></a></li>
+            <li><a class="skill-link" href="#anthropic"><span><strong>Anthropic XLSX</strong><small>发现公式错误</small></span></a></li>
+            <li><a class="skill-link" href="#openai-data"><span><strong>OpenAI Data</strong><small>找数据问题和指标差额</small></span></a></li>
+            <li><a class="skill-link" href="#lieflat"><span><strong>lieflat-charts</strong><small>把核对好的数字画成图</small></span></a></li>
+          </ul>
+        </nav>
+
+        <section id="lab" aria-labelledby="demo-title">
+          <header class="lab-header">
+            <small>互动演示</small>
+            <h2 id="demo-title" tabindex="-1">WorkBuddy XLSX</h2>
+            <p id="demo-description">先看看原表，再切换到异常记录和门店汇总。</p>
+          </header>
+          <div class="lab-content">
+            <div id="controls"></div>
+            <div id="result" aria-live="polite"></div>
+            <noscript><p>互动演示需要 JavaScript。上方「调研原文」可查看各 Skill 的说明和来源。</p></noscript>
+            <details id="sources">
+              <summary>接入方式与来源</summary>
+              <p id="access"></p>
+              <div class="sources" id="source-links"></div>
+            </details>
+          </div>
+        </section>
+      </div>
+
+      <section class="classroom">
+        <h2>带回课堂怎么用</h2>
+        <ol>
+          <li>从《门店指标口径》确认怎么算，先请 Agent 按原表行号列出异常、影响和待确认事项。</li>
+          <li>确认处理方式后，生成带公式的汇总表。对照原始明细复核合计，再手算一个比率。</li>
+          <li>用核对后的数据回答「哪些门店离目标最远」。需要汇报时，再把差额画成图。</li>
+        </ol>
+        <details>
+          <summary>Skill、插件和 Excel 加载项</summary>
+          <p>Agent Skill 可以包含说明、模板和脚本，运行时还需对应的环境和工具。OpenAI Data 插件承载数据质检和指标诊断等多个 Skill。要直接操作 Excel 中打开的工作簿，可使用 ChatGPT for Excel 加载项。</p>
+          <div class="sources">
+            <a href="https://agentskills.io/specification">Agent Skills 规范</a>
+            <a href="https://help.openai.com/en/articles/20001063-chatgpt-for-excel-and-google-sheets">Excel 加载项说明</a>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    "use strict";
+
+    const sampleRows = [
+      { date: "2026-06-01", store: "A 店", region: "华东", product: "食品", sales: 1280, cost: 820, target: 1100 },
+      { date: "2026-06-01", store: "B 店", region: "华东", product: "饮品", sales: 890, cost: null, target: 1000 },
+      { date: "06/02/26", store: "C 店", region: "华南", product: "饮品", sales: 1470, cost: 930, target: 1200 },
+      { date: "2026-06-02", store: "D 店", region: "华北", product: "日用", sales: 760, cost: 510, target: 900 },
+      { date: "2026-06-02", store: "D 店", region: "华北", product: "日用", sales: 760, cost: 510, target: 900 },
+      { date: "2026-06-02", store: "A 店", region: "华东", product: "饮品", sales: 1150, cost: 730, target: 1000 },
+      { date: "2026-06-03", store: "B 店", region: "华东", product: "食品", sales: 980, cost: 620, target: 950 },
+      { date: "2026-06-03", store: "C 店", region: "华南", product: "日用", sales: 1320, cost: 860, target: 1350 },
+      { date: "2026-06-03", store: "D 店", region: "华北", product: "饮品", sales: 0, cost: 0, target: 800 },
+    ];
+    const amount = new Intl.NumberFormat("zh-CN");
+    const percent = new Intl.NumberFormat("zh-CN", {
+      style: "percent",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    const signedAmount = new Intl.NumberFormat("zh-CN", { signDisplay: "exceptZero" });
+    const digits = (value) => amount.format(value);
+    const ratio = (value, base) => base ? percent.format(value / base) : "待确认";
+
+    function audit(rows) {
+      const issues = [];
+      const usable = [];
+      const seen = new Map();
+      rows.forEach((row, index) => {
+        const line = index + 1;
+        const key = JSON.stringify(Object.values(row));
+        if (seen.has(key)) {
+          issues.push([line, "重复导入", "会同时重复计入销售额和目标", "确认后汇总只计一次（同第 " + seen.get(key) + " 行）"]);
+          return;
+        }
+        seen.set(key, line);
+        if (row.cost === null) {
+          issues.push([line, "成本空白", "对应门店利润率无法确认", "保留销售额，利润率标记为待确认"]);
+        }
+        const dateParts = row.date.match(/^(\d{2})\/(\d{2})\/(\d{2})$/);
+        if (dateParts) {
+          issues.push([line, "日期含义待确认", "可能归到错误日期", "请业务确认月、日顺序"]);
+        }
+        // In this example the business confirms that slash-separated dates are month/day/year.
+        const date = dateParts ? "20" + dateParts[3] + "-" + dateParts[1] + "-" + dateParts[2] : row.date;
+        usable.push({ ...row, date, line });
+      });
+      return { issues, usable };
+    }
+
+    function rollup(rows, key) {
+      const groups = new Map();
+      for (const row of rows) {
+        const label = key ? row[key] : "合计";
+        const group = groups.get(label) ?? { label, sales: 0, target: 0, cost: 0, count: 0, missingCost: false };
+        group.sales += row.sales;
+        group.target += row.target;
+        group.cost += row.cost ?? 0;
+        group.missingCost ||= row.cost === null;
+        group.count += 1;
+        groups.set(label, group);
+      }
+      return [...groups.values()];
+    }
+
+    const { issues, usable } = audit(sampleRows);
+    const byStore = rollup(usable, "store");
+    const total = rollup(usable)[0];
+    const storeA = byStore[0];
+
+    const controls = document.querySelector("#controls");
+    const result = document.querySelector("#result");
+    const lab = document.querySelector("#lab");
+    const title = document.querySelector("#demo-title");
+    const access = document.querySelector("#access");
+    const sourceLinks = document.querySelector("#source-links");
+    const skillLinks = [...document.querySelectorAll(".skill-link")];
+
+    function table(label, headers, rows, options = {}) {
+      const { numeric = [], rowHead = false, report = false } = options;
+      const header = headers.map((text, col) => '<th scope="col"' + (numeric.includes(col) ? ' class="amount"' : "") + '>' + text + '</th>');
+      const body = rows.map((row) => {
+        const cells = row.map((cell, col) => {
+          const { text, style = "" } = typeof cell === "object" ? cell : { text: cell };
+          const tag = rowHead && col === 0 ? "th" : "td";
+          const classes = [numeric.includes(col) ? "amount" : "", style].filter(Boolean).join(" ");
+          return "<" + tag + (tag === "th" ? ' scope="row"' : "") + (classes ? ' class="' + classes + '"' : "") + ">" + text + "</" + tag + ">";
+        });
+        return "<tr>" + cells.join("") + "</tr>";
+      });
+      return '<div class="sheet" role="region" tabindex="0" aria-label="' + label + '"><table' + (report ? ' class="report"' : "") +
+        '><thead><tr>' + header.join("") + '</tr></thead><tbody>' + body.join("") + '</tbody></table></div>';
+    }
+
+    function note(text) {
+      return '<p class="footnote">' + text + '</p>';
+    }
+
+    function setupModes(label, options, render) {
+      const group = document.createElement("div");
+      group.className = "controls";
+      group.setAttribute("role", "group");
+      group.setAttribute("aria-label", label);
+      const buttons = options.map((option, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "mode";
+        button.textContent = option;
+        button.setAttribute("aria-pressed", String(index === 0));
+        button.addEventListener("click", () => {
+          buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+          render(index);
+        });
+        group.append(button);
+        return button;
+      });
+      controls.replaceChildren(group);
+      render(0);
+    }
+
+    function showRecords(records, label, explanation) {
+      const rows = records.map((row, index) => [
+        row.line ?? index + 1, row.date, row.store, row.region, row.product, digits(row.sales),
+        row.cost === null ? "空白" : digits(row.cost), digits(row.target),
+      ]);
+      return table(label, ["原表行号", "日期", "门店", "地区", "品类", "销售额", "成本", "目标"], rows, { numeric: [5, 6, 7] }) +
+        note(explanation);
+    }
+
+    function showIssues() {
+      return table("异常清单", ["原表行号", "问题", "影响", "处理建议"], issues) +
+        note("销售额和成本均为 0 的记录保留。成本空白的记录照常计入销售额、目标和目标完成率。");
+    }
+
+    function showStoreReport() {
+      const rows = [...byStore, total].map((group) => [
+        group.label, digits(group.sales), digits(group.target), ratio(group.sales, group.target),
+        group.missingCost ? "待确认" : ratio(group.sales - group.cost, group.sales),
+      ]);
+      return table("门店汇总预览", ["门店", "销售额", "目标", "完成率", "利润率"], rows, {
+        numeric: [1, 2, 3, 4], rowHead: true, report: true,
+      }) + note("假设业务已确认第 5 行重复导入，第 3 行是 6 月 2 日。整体完成率用总销售额除以总目标。");
+    }
+
+    function demoWorkBuddy() {
+      const views = [
+        () => showRecords(sampleRows, "录入的门店原表", "9 行模拟记录，金额单位为元。先找找哪几行会影响汇总。"),
+        showIssues,
+        () => showRecords(usable, "按业务确认结果整理的明细", "第 5 行重复记录仅在汇总明细中排除，第 3 行日期已统一。成本缺失的数据仍保留空白。"),
+        showStoreReport,
+      ];
+      setupModes("工作表预览", ["原表", "异常记录", "整理后明细", "门店汇总"], (index) => {
+        result.innerHTML = views[index]();
+      });
+    }
+
+    function demoCodex() {
+      controls.innerHTML = '<div class="number-control"><label for="target-input">A 店销售目标</label>' +
+        '<input id="target-input" type="number" min="0" max="999999" step="1" inputmode="numeric" value="2100">' +
+        '<span class="unit">元</span><button class="mode" type="button" id="reset-target">恢复样例</button></div>';
+      const input = document.querySelector("#target-input");
+      const reset = document.querySelector("#reset-target");
+      const render = () => {
+        const target = input.valueAsNumber;
+        const valid = input.value !== "" && input.validity.valid;
+        const rows = [[
+          "A 店", digits(storeA.sales), valid ? digits(target) : "待输入",
+          valid ? ratio(storeA.sales, target) : "待确认",
+        ]];
+        result.innerHTML = table("公式联动预览", ["A1 门店", "B1 销售额", "C1 目标", "D1 完成率"], rows, {
+          numeric: [1, 2, 3], rowHead: true,
+        }) + note('D2 公式 <code>=IF(OR(C2="",C2=0),"待确认",B2/C2)</code>。试试输入 2400 或 0。');
+      };
+      input.value = storeA.target;
+      input.addEventListener("input", render);
+      reset.addEventListener("click", () => {
+        input.value = storeA.target;
+        render();
+        input.focus();
+      });
+      render();
+    }
+
+    function demoSenseNova() {
+      const dimensions = [["门店", "store"], ["地区", "region"], ["品类", "product"]];
+      setupModes("分析维度", dimensions.map(([label]) => "按" + label), (index) => {
+        const [label, key] = dimensions[index];
+        const rows = [...rollup(usable, key), total].map((group) => [
+          group.label, group.count, digits(group.sales), digits(group.target), ratio(group.sales, group.target),
+        ]);
+        result.innerHTML = table("按" + label + "分组汇总", [label, "纳入明细", "销售额", "目标", "完成率"], rows, {
+          numeric: [1, 2, 3, 4], rowHead: true, report: true,
+        }) + note("同样的 8 条有效记录按不同字段分组，组数和小计会变，整体口径一致。");
+      });
+    }
+
+    function demoMiniMax() {
+      setupModes("模板调整", ["原模板", "把 A 店目标改为 2,300"], (index) => {
+        const rows = byStore.map((group) => {
+          const changed = index === 1 && group.label === storeA.label;
+          const target = changed ? 2300 : group.target;
+          return [
+            group.label, digits(group.sales),
+            { text: digits(target), style: changed ? "changed" : "" },
+            ratio(group.sales, target),
+          ];
+        });
+        result.innerHTML = table("经营简报模板", ["门店", "销售额（元）", "目标（元）", "完成率"], rows, {
+          numeric: [1, 2, 3], rowHead: true,
+        }) + note(index === 1 ? "A 店的目标单元格已更新，完成率随公式重算。" : "模拟一份已经确定版式的经营简报。");
+      });
+    }
+
+    function demoAnthropic() {
+      setupModes("公式检查", ["检查原公式", "加上零目标处理"], (index) => {
+        const fixed = index === 1;
+        const rows = [
+          ["A 店", digits(storeA.sales), digits(storeA.target), ratio(storeA.sales, storeA.target), "正常"],
+          ["B 店", digits(byStore[1].sales), "0",
+            { text: fixed ? "待确认" : "#DIV/0!", style: fixed ? "changed" : "flag" },
+            fixed ? "保留问题标记" : "分母为零"],
+        ];
+        result.innerHTML = table("公式结果检查", ["门店", "销售额", "目标", "完成率", "校验结果"], rows, {
+          numeric: [1, 2, 3], rowHead: true,
+        }) + note(fixed ? 'B 店公式 <code>=IF(OR(C3="",C3=0),"待确认",B3/C3)</code>。仍需业务确认目标。' :
+          '为演示边界情况，假定 B 店目标为 0。原公式 <code>=B3/C3</code> 会产生除零错误。');
+      });
+    }
+
+    function demoOpenAIData() {
+      setupModes("分析任务", ["数据质检", "指标差额"], (index) => {
+        if (index === 0) {
+          result.innerHTML = showIssues();
+          return;
+        }
+        const ranked = [...byStore].sort((a, b) => (a.sales - a.target) - (b.sales - b.target));
+        const rows = [...ranked, total].map((group) => [
+          group.label, digits(group.sales), digits(group.target), signedAmount.format(group.sales - group.target),
+        ]);
+        result.innerHTML = table("按销售差额拆解", ["门店", "销售额", "目标", "销售额减目标"], rows, {
+          numeric: [1, 2, 3], rowHead: true, report: true,
+        }) + note("合计差额可由各门店差额相加得到。优先查看负差额最大的门店，再回到日期和品类明细追查。");
+      });
+    }
+
+    function drawChart(groups, useGap) {
+      const metric = useGap ? (group) => group.sales - group.target : (group) => group.sales;
+      const ranked = [...groups].sort((a, b) => metric(b) - metric(a));
+      const max = Math.max(1, ...ranked.map((group) => Math.abs(metric(group))));
+      const rows = ranked.map((group) => {
+        const value = metric(group);
+        const width = Math.abs(value) * 100 / max;
+        const bar = '<span class="bar' + (value < 0 ? ' shortfall' : '') + '" style="--bar-width:' + width + '%"></span>';
+        const track = useGap
+          ? '<div class="track signed" aria-hidden="true"><span class="half">' + (value < 0 ? bar : "") +
+            '</span><span class="half">' + (value >= 0 ? bar : "") + '</span></div>'
+          : '<div class="track" aria-hidden="true">' + bar + '</div>';
+        return '<div class="chart-row"><span>' + group.label + '</span>' + track +
+          '<output>' + (useGap ? signedAmount.format(value) : digits(value)) + '</output></div>';
+      });
+      return '<figure class="chart"><figcaption>' + (useGap ? "各门店销售额与目标差额（元）" : "各门店销售额（元）") +
+        '</figcaption>' + rows.join("") + (useGap ? '<p class="chart-key">中线为 0，左侧低于目标，右侧高于目标。</p>' : "") + '</figure>';
+    }
+
+    function demoLieflat() {
+      setupModes("图表指标", ["销售额", "与目标差额"], (index) => {
+        result.innerHTML = drawChart(byStore, index === 1) +
+          note("图表沿用同一份汇总。销售额看规模，正负差额看哪些门店超额或未达标。");
+      });
+    }
+
+    const demos = {
+      workbuddy: {
+        name: "WorkBuddy XLSX",
+        description: "先查看门店原表，再点开异常记录、整理后明细和汇总表。",
+        access: "腾讯官方「办公文档四件套」列出的内置指令，适合清洗表格、整理列、补公式和输出汇总。",
+        sources: [["WorkBuddy 官方说明", "https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/WorkBuddy-Zero-Cost-Skill-Top-10/Office-Document-Suite"]],
+        run: demoWorkBuddy,
+      },
+      codex: {
+        name: "Codex Spreadsheets",
+        description: "在下方改 A 店的目标，观察完成率怎样随输入变化。",
+        access: "用于创建与修改 Excel、公式、格式和图表。本课程的门店练习表用当前 Codex 桌面环境的 Spreadsheets 生成和验证。",
+        sources: [["Codex 的 Excel 加载项（直接操作打开的工作簿）", "https://help.openai.com/en/articles/20001063-chatgpt-for-excel-and-google-sheets"]],
+        run: demoCodex,
+      },
+      sensenova: {
+        name: "商汤 sn-da-excel-workflow",
+        description: "切换分析维度，看同一批门店记录怎样汇总成不同小计。",
+        access: "官方提供中文说明，推荐搭配 OpenClaw 或 Hermes。工作流依赖 Python 数据处理库，包含多工作表读取、清洗、汇总、图表和导出。大文件可参考配套的 sn-da-large-file-analysis。",
+        sources: [
+          ["中文说明与依赖", "https://github.com/OpenSenseNova/SenseNova-Skills/blob/main/docs/sn-data-analysis_cn.md"],
+          ["Skill 源码", "https://github.com/OpenSenseNova/SenseNova-Skills/blob/main/skills/sn-da-excel-workflow/SKILL.md"],
+        ],
+        run: demoSenseNova,
+      },
+      minimax: {
+        name: "MiniMax minimax-xlsx",
+        description: "对比模板调整前后，观察一个目标数字的修改如何传到结果列。",
+        access: "MIT 许可。适合定点改动已有工作簿和验证公式。项目提供 Codex 的技能目录接入方法，可用 LibreOffice 重算。使用真实模板时应核对格式、公式及图表的保留情况。",
+        sources: [
+          ["Skill 源码", "https://github.com/MiniMax-AI/skills/blob/main/skills/minimax-xlsx/SKILL.md"],
+          ["Codex 接入", "https://github.com/MiniMax-AI/skills/blob/main/.codex/INSTALL.md"],
+        ],
+        run: demoMiniMax,
+      },
+      anthropic: {
+        name: "Anthropic xlsx",
+        description: "对比公式检查和处理后的结果，看看目标为零时该如何标记。",
+        access: "Claude 提供预置工作簿能力，Claude Code 可通过 document-skills 接入。Apache 2.0 许可的公开实现使用 openpyxl、pandas 和 LibreOffice 等工具。",
+        sources: [
+          ["Skill 源码", "https://github.com/anthropics/skills/blob/main/skills/xlsx/SKILL.md"],
+          ["Claude Code 接入", "https://github.com/anthropics/skills#try-in-claude-code-claudeai-and-the-api"],
+        ],
+        run: demoAnthropic,
+      },
+      "openai-data": {
+        name: "OpenAI Data",
+        description: "先找会影响报表的数据问题，再看各门店对整体销售差额的贡献。",
+        access: "analyze-data-quality 检查数据质量，metric-diagnostics 分解指标差异。能否调用取决于 ChatGPT Work 或 Codex 账号和工作区的 Data 插件可用性。",
+        sources: [
+          ["数据质检", "https://github.com/openai/plugins/blob/main/plugins/data-analytics/skills/analyze-data-quality/SKILL.md"],
+          ["指标诊断", "https://github.com/openai/plugins/blob/main/plugins/data-analytics/skills/metric-diagnostics/SKILL.md"],
+          ["插件说明", "https://help.openai.com/en/articles/20001518-using-the-data-plugin-in-chatgpt-work-and-codex"],
+        ],
+        run: demoOpenAIData,
+      },
+      lieflat: {
+        name: "lieflat-charts",
+        description: "同一张汇总表，切换成交规模排名和目标差额图。",
+        access: "默认生成在浏览器中查看的 HTML 图表。项目提供 Codex 等平台的安装说明。实际项目的部分模板会在线加载图表库或字体。",
+        sources: [
+          ["Skill 源码", "https://github.com/larashero3-dotcom/lieflat-charts/blob/main/SKILL.md"],
+          ["图表样例与使用说明", "https://larashero3-dotcom.github.io/lieflat-charts/"],
+        ],
+        run: demoLieflat,
+      },
+    };
+
+    function selectDemo(key) {
+      const current = Object.hasOwn(demos, key) ? key : "workbuddy";
+      const demo = demos[current];
+      skillLinks.forEach((link) => link.setAttribute("aria-current", String(link.hash === "#" + current)));
+      title.textContent = demo.name;
+      document.querySelector("#demo-description").textContent = demo.description;
+      access.textContent = demo.access;
+      sourceLinks.replaceChildren(...demo.sources.map(([label, url]) => {
+        const link = document.createElement("a");
+        link.textContent = label;
+        link.href = url;
+        return link;
+      }));
+      document.querySelector("#sources").open = false;
+      demo.run();
+    }
+
+    function selectFromLocation() {
+      selectDemo(location.hash.slice(1));
+    }
+
+    window.addEventListener("hashchange", selectFromLocation);
+    skillLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        if (location.hash !== link.hash) history.pushState(null, "", link.hash);
+        selectFromLocation();
+        title.focus({ preventScroll: true });
+        if (matchMedia("(max-width: 800px)").matches) lab.scrollIntoView({ block: "start" });
+      });
+    });
+    selectFromLocation();
+  </script>
+</body>
+</html>
