@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2026 年 11 月 18 日至 25 日 AIHot AI 简报。包含八期日报和一期周报的出刊索引，以及模型、产品、产业、科研及治理五类新闻概要。">
+  <title>AIHot AI 简报｜2026 年 11 月 18–25 日</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f5ee;
+      --white: #fffcf6;
+      --ink: #182725;
+      --muted: #53625b;
+      --line: #d6dcd1;
+      --accent: #205e4c;
+      --dark: #102d27;
+      --light: #d8efb7;
+      --serif: "Songti SC", "Noto Serif CJK SC", "Noto Serif SC", "STSong", serif;
+      --sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 1rem; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.75 var(--sans);
+      overflow-wrap: anywhere;
+    }
+    a { color: var(--accent); text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    p, h1, h2, h3 { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 800; line-height: 1.15; }
+    .wrap { width: min(1100px, calc(100% - 64px)); margin-inline: auto; }
+    .masthead { background: var(--white); border-bottom: 1px solid var(--line); }
+    .masthead .wrap, .mast-nav, .topic-nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .55rem 1.45rem;
+    }
+    .masthead .wrap { min-height: 62px; justify-content: space-between; padding-block: .6rem; }
+    .masthead strong { font-size: .95rem; letter-spacing: .08em; }
+    .mast-nav a, .topic-nav a { font-weight: 700; font-size: .9rem; }
+    .mast-nav a { text-decoration: none; }
+    .mast-nav a:hover { text-decoration: underline; }
+    .hero { color: var(--white); background: var(--dark); }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(205px, .43fr);
+      align-items: end;
+      gap: 2.5rem;
+      padding-block: clamp(2.6rem, 7vw, 5.8rem);
+    }
+    .hero .period, .hero .date-range { color: var(--light); }
+    .hero .period { font-size: .92rem; font-weight: 700; letter-spacing: .1em; }
+    h1 { font-size: clamp(2.65rem, 6.6vw, 5.6rem); margin-block: .35rem 1.15rem; }
+    .hero .dek { max-width: 33em; color: #e2ece4; font-size: clamp(1rem, 2vw, 1.2rem); }
+    .date-panel { border-top: 1px solid #6b897a; padding-top: .85rem; }
+    .date-range { font: 800 clamp(2.1rem, 4vw, 3.6rem)/1.15 var(--serif); white-space: nowrap; }
+    .coverage { color: #e2ece4; margin-top: .4rem; font-size: .93rem; }
+    .section { margin-block: 3.3rem; }
+    h2 { font-size: clamp(1.75rem, 4vw, 2.65rem); }
+    .section-intro { max-width: 56em; color: var(--muted); margin-top: .75rem; }
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .overview article {
+      padding: 1.3rem 1.45rem;
+      background: var(--white);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    h3 { font-size: 1.1rem; line-height: 1.45; }
+    .overview p, .story p { margin-top: .45rem; }
+    .overview h3 a, .title-link { text-decoration: none; }
+    .overview h3 a:hover, .title-link:hover { text-decoration: underline; }
+    .topic-nav { margin-block: 1.15rem .5rem; }
+    .topic-nav a { padding: .19rem .62rem; border: 1px solid var(--line); background: var(--white); }
+    .topic { margin-top: 2.25rem; border-top: 2px solid var(--accent); padding-top: 1rem; }
+    .topic h3.topic-title { font-family: var(--serif); font-size: 1.7rem; }
+    .stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 1.6rem; }
+    .story { border-bottom: 1px solid var(--line); padding: 1rem 0; }
+    .story h4 { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+    .dateline { display: block; color: var(--muted); font-size: .81rem; margin-bottom: .18rem; }
+    .source { color: var(--muted); font-size: .84rem; }
+    .source a { display: inline-block; margin-right: .68em; }
+    .aside {
+      margin-top: .95rem;
+      border-left: 3px solid #718b54;
+      padding: .65rem .95rem;
+      background: #eaf0df;
+    }
+    .aside strong { color: var(--accent); margin-right: .5rem; }
+    .report-list { padding: 0; list-style: none; margin: 1.2rem 0 0; border-top: 2px solid var(--accent); }
+    .report {
+      display: grid;
+      grid-template-columns: 10.8rem minmax(0, 1fr);
+      gap: .55rem 1.1rem;
+      padding: 1rem .55rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .report time { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .report .edition { display: block; color: var(--muted); font-size: .85rem; }
+    .report p { margin-top: .33rem; }
+    .report.weekly { background: #edf0e5; padding-inline: .72rem; }
+    footer { border-top: 1px solid var(--line); padding-block: 1.3rem; color: var(--muted); font-size: .9rem; }
+    footer p + p { margin-top: .35rem; }
+    @media (max-width: 700px) {
+      .wrap { width: calc(100% - 36px); }
+      .hero .wrap, .overview, .stories, .report { grid-template-columns: 1fr; }
+      .hero .wrap { gap: 1.4rem; }
+      .date-range { white-space: normal; }
+      .section { margin-block: 2.5rem; }
+      .overview article { padding: .9rem 1rem; }
+      .report .edition { display: inline; margin-left: .6rem; }
+    }
+    @media print {
+      .wrap { width: 100%; }
+      body, .hero, .masthead, .overview article, .report.weekly { background: #fff; color: #111; }
+      .hero .wrap { padding-block: 1rem; }
+      .hero .period, .hero .date-range, .hero .dek, .coverage { color: #111; }
+      .section { margin-block: 1.6rem; }
+      .mast-nav, .topic-nav { display: none; }
+      .story, .overview article, .report, .aside { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead" id="top">
+    <div class="wrap">
+      <strong>第三课 · AI 行业简报</strong>
+      <nav class="mast-nav" aria-label="页面导航">
+        <a href="#overview">主要事件</a>
+        <a href="#topics">分类概要</a>
+        <a href="#reports">全部报告</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <div>
+        <p class="period">2026 年 11 月 · AIHot 出刊回顾</p>
+        <h1 id="page-title">AIHot AI 简报</h1>
+        <p class="dek">模型密集上新，助手开始接手审批和电话。Anthropic 上市后迅速破发，黄仁勋回归英伟达，Lean 社区复核了 Claude 参与的黎曼猜想证明。</p>
+      </div>
+      <div class="date-panel">
+        <p class="date-range"><time datetime="2026-11-18">11.18</time>—<time datetime="2026-11-25">11.25</time></p>
+        <p class="coverage">北京时间 · 8 期日报 + 1 期周报</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="section" id="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">主要发生了什么</h2>
+      <div class="overview">
+        <article>
+          <h3><a href="#models">旗舰模型分档，开放权重继续推进</a></h3>
+          <p>OpenAI 和 Google 分别提供偏复杂任务与偏日常速度的选项。智谱发布 GLM-5.4，腾讯开放 Hy4 权重，Thinking Machines 展示了能在笔记本上运行的 Inkling 2 Mini。</p>
+        </article>
+        <article>
+          <h3><a href="#products">助手从对话框进入工作流</a></h3>
+          <p>Claude 可以把作品装成桌面应用，也开始按规则审查、修复和审批代码变更。Gemini 的任务功能开始代打电话，Google 搜索可按授权接入个人资料。</p>
+        </article>
+        <article>
+          <h3><a href="#industry">资本市场和算力供应同时波动</a></h3>
+          <p>Anthropic 开盘高于发行价约 34%，几个交易日后跌破发行价。英伟达董事会恢复黄仁勋职务，美国也发布了涉及境外数据中心的芯片出口新规。</p>
+        </article>
+        <article>
+          <h3><a href="#research">AI 科研开始拿出可复核的结果</a></h3>
+          <p>Lean 与 Mathlib 社区确认了黎曼猜想的形式化证明。DeepMind 用形式化验证检查量子算法，OpenAI 则提议用困惑度给不同实验室的模型测量提供共同参照。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="topics" aria-labelledby="topics-title">
+      <h2 id="topics-title">分类概要</h2>
+      <p class="section-intro">下列日期对应 AIHot 收录的期次。公告、论文或交易发生在前一日时，以段落内标明的日期为准。</p>
+      <nav class="topic-nav" aria-label="新闻分类">
+        <a href="#models">模型与开源</a>
+        <a href="#products">产品与智能体</a>
+        <a href="#industry">资本与算力</a>
+        <a href="#research">科研与评估</a>
+        <a href="#governance">安全与治理</a>
+      </nav>
+
+      <section class="topic" id="models" aria-labelledby="models-title">
+        <h3 class="topic-title" id="models-title">模型与开源</h3>
+        <div class="stories">
+          <article class="story">
+            <time class="dateline" datetime="2026-11-18">11 月 18 日</time>
+            <h4>OpenAI 发布 GPT-6.2 Astra 和 Sol</h4>
+            <p>Astra 面向复杂专业任务，Sol 面向常规工作。OpenAI 在 11 月 17 日的发布文中称，两者能用更少的输出 token 完成同类任务。24 日的日报又跟进了 ChatGPT 对话入口的 Sol 更新。</p>
+            <p class="source"><a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/">OpenAI 发布说明</a><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT 更新日志</a></p>
+          </article>
+          <article class="story">
+            <span class="dateline">11 月 19、21 日</span>
+            <h4>Google 推出 Gemini 4 Neon 与 Hydrogen</h4>
+            <p>Neon 面向软件工程、知识工作和科研等多步骤任务。Hydrogen 偏重速度，进入 Gemini 应用和搜索，也为 Gemini 的任务功能提供支持。</p>
+            <p class="source"><a href="https://deepmind.google/blog/introducing-gemini-4-neon/">DeepMind · Neon</a><a href="https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/">Google · Hydrogen</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-21">11 月 21 日</time>
+            <h4>Inkling 2 Mini 跑进笔记本，腾讯开放混元 Hy4 权重</h4>
+            <p>Thinking Machines 公布 Inkling 2 Mini 权重，在配有 48 GB 内存的 MacBook Pro 上展示约 20 GB 的总内存占用。腾讯公开多模态旗舰 Hy4 的模型权重，开发者可下载自行评估或部署。</p>
+            <p class="source"><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Thinking Machines · Inkling</a><a href="https://huggingface.co/tencent/Hy4">腾讯混元 · Hy4 模型卡</a></p>
+          </article>
+          <article class="story">
+            <span class="dateline">11 月 24–25 日</span>
+            <h4>智谱发布 GLM-5.4，Cognition 更新 SWE-2.1</h4>
+            <p>GLM-5.4 让 28 层共享权重执行两轮，以增加推理深度，API 和开放权重在公告中列为后续计划。Cognition 同期推出编程模型 SWE-2.1 及高速版 Lightning。</p>
+            <p class="source"><a href="https://z.ai/blog/glm-5.4">智谱发布说明</a><a href="https://cognition.com/blog/swe-2-1">Cognition 发布说明</a></p>
+          </article>
+        </div>
+        <p class="aside"><strong>短评</strong>Gemini 按元素周期表上新，采购还是得按延迟、成本和任务类型填表。</p>
+      </section>
+
+      <section class="topic" id="products" aria-labelledby="products-title">
+        <h3 class="topic-title" id="products-title">产品与智能体</h3>
+        <div class="stories">
+          <article class="story">
+            <time class="dateline" datetime="2026-11-18">11 月 18 日</time>
+            <h4>Gemini Tasks 开始代打电话和办事</h4>
+            <p>Google 在美、日、韩等六国免费推出新版任务功能，支持逾 60 个应用或服务。向商家外呼等高级功能先在美国推出，适用地区和权限随功能而异。</p>
+            <p class="source"><a href="https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/">Google 任务功能说明</a></p>
+          </article>
+          <article class="story">
+            <span class="dateline">11 月 19–20 日</span>
+            <h4>Project Genie 增加交互式世界，Gemini 试用电脑操作</h4>
+            <p>Google 为部分符合资格的 AI Ultra 用户开放 Genie 4 体验，可以探索模型生成的场景。Mac 版 Gemini 开始在美国推出电脑操作功能，可按用户授权跨应用办事。</p>
+            <p class="source"><a href="https://deepmind.google/blog/genie-4-is-now-available/">DeepMind · Project Genie</a><a href="https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/">Google · Mac 电脑操作</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-21">11 月 21 日</time>
+            <h4>ChatGPT Space 汇集页面、幻灯片和文件</h4>
+            <p>ChatGPT 开始向年满 18 岁的 Plus 用户逐步开放 Space。生成的页面、幻灯片、图片以及上传的文件可以放在同一个项目空间里组织。</p>
+            <p class="source"><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT 更新日志</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-24">11 月 24 日</time>
+            <h4>Claude Ship 进入 GitHub 审查与审批流程</h4>
+            <p>面向在 GitHub 上工作的 Claude Team 和 Enterprise 用户。代码审查已正式上线，PR Steward 和 Claude Approvals 处于测试阶段，分别负责处理反馈、推送修复和按仓库策略审批。</p>
+            <p class="source"><a href="https://claude.com/resources/articles/introducing-claude-ship">Claude Ship 发布说明</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-24">11 月 24 日</time>
+            <h4>Google 搜索开始读取更多个人上下文</h4>
+            <p>AI Mode 开始支持用户主动授权连接 Google Wallet。Google Drive 和 Gemini 应用按公告会在接下来数周陆续接入。</p>
+            <p class="source"><a href="https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/">Google 搜索发布说明</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-25">11 月 25 日</time>
+            <h4>Claude 作品可装进桌面，MCP 服务可提供技能</h4>
+            <p>Mac 和 Windows 版 Claude 开始测试把 artifact 安装为独立窗口应用，原作品更新后同步。MCP 服务向 Claude 提供技能的能力开启公测，长任务进度和向用户询问缺失信息的能力同步正式发布。</p>
+            <p class="source"><a href="https://claude.com/resources/articles/install-as-app">桌面应用发布说明</a><a href="https://claude.com/resources/articles/skills-over-mcp-tasks-and-more">MCP 公测说明</a></p>
+          </article>
+        </div>
+        <p class="aside"><strong>短评</strong>以前交作业发个链接。现在可以附安装入口，下回还得记得写更新说明。</p>
+      </section>
+
+      <section class="topic" id="industry" aria-labelledby="industry-title">
+        <h3 class="topic-title" id="industry-title">资本与算力</h3>
+        <div class="stories">
+          <article class="story">
+            <span class="dateline">11 月 19–20、25 日</span>
+            <h4>Anthropic 登陆纳斯达克，数日后破发</h4>
+            <p>发行价每股 83 美元，11 月 19 日美股开盘为 111.50 美元，代码 ANT。11 月 24 日美股收于 81.91 美元，跌破发行价，AIHot 在 25 日跟进。</p>
+            <p class="source"><a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">Anthropic · IPO 定价</a><a href="https://www.nasdaq.com/newsroom/anthropic-marks-ipo-at-nasdaq">纳斯达克 · 开盘</a><a href="https://www.channelnewsasia.com/world/stocks-wall-street-nvidia-anthropic-ai-6579601">法新社 · 11 月 24 日收盘</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-24">11 月 24 日</time>
+            <h4>黄仁勋复任英伟达 CEO</h4>
+            <p>英伟达在 11 月 23 日宣布，董事会全票恢复黄仁勋的总裁、CEO 和董事职务。临时 CEO Colette Kress 继续担任 CFO。董事会的独立调查仍在进行，公司已经设立国家安全与出口管制委员会。</p>
+            <p class="source"><a href="https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director/">英伟达董事会公告</a></p>
+          </article>
+          <article class="story">
+            <span class="dateline">11 月 20、25 日</span>
+            <h4>美国把部分境外数据中心纳入芯片许可审查</h4>
+            <p>美国商务部 BIS 发布临时最终规则，将部分用于数据中心的先进芯片出口纳入更具体的目的地与最终用途管制。日报跟进了海外算力租用和项目谈判可能受到的影响。</p>
+            <p class="source"><a href="https://www.govinfo.gov/app/details/FR-2026-11-19/2026-23529">美国联邦公报规则文本</a><a href="https://aihot.news/daily/2026-11-20">11 月 20 日行业版</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-24">11 月 24 日</time>
+            <h4>58 家企业如何用 AI 重组工作</h4>
+            <p>Anthropic 访谈 58 家美国客户，共 66 次。受访者主要报告产出增加，直接裁员案例较少，也有人减少招聘或外包。样本来自 Anthropic 客户，适合观察采用方式和组织变化。</p>
+            <p class="source"><a href="https://www.anthropic.com/research/working-with-ai">Anthropic 企业访谈报告</a></p>
+          </article>
+        </div>
+        <p class="aside"><strong>短评</strong>敲钟礼只办一次，收盘价每天都要交作业。</p>
+      </section>
+
+      <section class="topic" id="research" aria-labelledby="research-title">
+        <h3 class="topic-title" id="research-title">科研与评估</h3>
+        <div class="stories">
+          <article class="story">
+            <span class="dateline">11 月 21–22 日</span>
+            <h4>黎曼猜想证明经过 Lean 与独立内核检查</h4>
+            <p>数学家 Levent Alpöge 与 Claude 合作发布形式化证明，随后 Lean 和 Mathlib 社区确认黎曼猜想的命题表述和证明正确。MIT 数学家公开的核验记录还列出了独立检查器的通过结果。</p>
+            <p class="source"><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/">Lean 与 Mathlib 联合说明</a><a href="https://math.mit.edu/~drew/grh/">独立核验记录</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-23">11 月 23 日</time>
+            <h4>OpenAI 提议用困惑度为模型建立共同参照</h4>
+            <p>困惑度衡量模型预测测试文本的难易。OpenAI 公开部分预训练测量数据，提议用这一指标跨实验室比较，并探索它与能力和风险之间的关系。共同阈值仍处于提议阶段。</p>
+            <p class="source"><a href="https://openai.com/index/perplexity-and-intelligence/">OpenAI 研究说明</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-21">11 月 21 日</time>
+            <h4>METR 测到研发相关任务的有效时长增长</h4>
+            <p>在 METR 的两套特定任务中，模型达到 50% 成功率所对应的任务时长约每 3.6 个月翻倍。这里的时长按人类专家完成任务所需时间定义，结果受任务选择和评分方式影响。</p>
+            <p class="source"><a href="https://metr.org/blog/2026-11-20-q4-2026-capability-update/">METR 能力测量更新</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-24">11 月 24 日</time>
+            <h4>DeepMind 用 Gemini 智能体与 Lean 检查量子算法</h4>
+            <p>团队让 Gemini 智能体寻找更高效的量子电路，再用 Lean 检查候选结果，并公开问题规格和验证内容，供其他团队复核。</p>
+            <p class="source"><a href="https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/">DeepMind 研究说明</a></p>
+          </article>
+        </div>
+        <p class="aside"><strong>短评</strong>数学审稿人收到了约 1700 万行 Lean。还好这轮可以先请机器过一遍。</p>
+      </section>
+
+      <section class="topic" id="governance" aria-labelledby="governance-title">
+        <h3 class="topic-title" id="governance-title">安全与治理</h3>
+        <div class="stories">
+          <article class="story">
+            <time class="dateline" datetime="2026-11-22">11 月 22 日</time>
+            <h4>Together AI 通报推理服务提示词泄露</h4>
+            <p>Together AI 披露，部分 2026 年 6–7 月的无服务器推理请求涉及提示词泄露。该期还收录了对 AI 路由供应链的独立调查，涉及请求内容经过哪些服务以及会被谁保留。</p>
+            <p class="source"><a href="https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026">Together AI 事件公告</a><a href="https://aihot.news/daily/2026-11-22">11 月 22 日研究版</a></p>
+          </article>
+          <article class="story">
+            <time class="dateline" datetime="2026-11-25">11 月 25 日</time>
+            <h4>智能体的权限边界受到检验</h4>
+            <p>AIHot 收录了 Anthropic 对弱隔离环境的评估，以及一份关于现实安全事件的威胁情报报道。两条消息分别来自实验和实际事件，讨论的都是智能体获准接触外部资源后，既有权限与隔离能否约束其行为。</p>
+            <p class="source"><a href="https://aihot.news/daily/2026-11-25">11 月 25 日产业与研究版</a></p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section class="section" id="reports" aria-labelledby="reports-title">
+      <h2 id="reports-title">全部报告</h2>
+      <p class="section-intro">按出刊日期倒序，标题沿用 AIHot 档案。日报标注每天 08:00 出刊，周报标注周一出刊。区间内的第 47 周周报回看 11 月 16–22 日，站点最新月报为 10 月刊。</p>
+      <ol class="report-list">
+        <li class="report">
+          <div><time datetime="2026-11-25T08:00:00+08:00">11 月 25 日 08:00</time><span class="edition">周三 · 日报第 218 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-25">AI 日报｜11月25日：Claude 推出 Install as app：artifacts 可安装为 Mac 和 Windows 桌面应用</a></h3><p>Claude 桌面应用和 MCP 技能开启测试，Cognition 增加编程模型，日报快讯跟进 Anthropic 破发。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-24T08:00:00+08:00">11 月 24 日 08:00</time><span class="edition">周二 · 日报第 217 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-24">AI 日报｜11月24日：NVIDIA 宣布黄仁勋复任总裁兼 CEO 并重回董事会</a></h3><p>英伟达恢复黄仁勋职务，智谱发布 GLM-5.4，Claude Ship 进入 PR 工作流，Anthropic 公布企业访谈。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-23T08:00:00+08:00">11 月 23 日 08:00</time><span class="edition">周一 · 日报第 216 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-23">AI 日报｜11月23日：OpenAI 提议以困惑度作为行业共享指标并公开内部预训练测量数据</a></h3><p>OpenAI 提出了可跨机构比较的模型测量指标。OpenBMB 的消息展示了小模型在老挝和端侧设备上的应用。</p></div>
+        </li>
+        <li class="report weekly">
+          <div><time datetime="2026-11-23">11 月 23 日</time><span class="edition">周一 · 周报第 29 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/weekly/2026-W47">AI 周报｜11月16日—22日：Anthropic 登陆纳斯达克，开盘价 111 美元较发行价高出 33%</a></h3><p>第 47 周回顾同时收录 Anthropic 上市、GPT-6.2 与多款 Gemini 4 上新、海外算力管制和黎曼猜想证明。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-22T08:00:00+08:00">11 月 22 日 08:00</time><span class="edition">周日 · 日报第 215 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-22">AI 日报｜11月22日：Anthropic 数学家称与 Claude 完成黎曼猜想证明，斯坦福数小时后发布纯人类竞争草稿</a></h3><p>该期跟进 Claude 参与的证明及另一份仍在修订的广义黎曼猜想候选稿。同期报道 Together AI 提示词泄露和 AI 路由供应链调查。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-21T08:00:00+08:00">11 月 21 日 08:00</time><span class="edition">周六 · 日报第 214 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-21">AI 日报｜11月21日：Thinking Machines Lab 发布可跑在笔记本上的开源权重模型 Inkling 2 Mini</a></h3><p>Inkling 2 Mini 和混元 Hy4 开放权重，Gemini 4 Hydrogen 进入消费产品，METR 更新研发任务能力测量。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-20T08:00:00+08:00">11 月 20 日 08:00</time><span class="edition">周五 · 日报第 213 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-20">AI 日报｜11月20日：Anthropic 登陆纳斯达克，开盘价 111 美元较发行价高出 33%</a></h3><p>Anthropic 上市首日大涨，日报同时追踪芯片和海外云算力限制，以及 Gemini API 的工具检索预览。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-19T08:00:00+08:00">11 月 19 日 08:00</time><span class="edition">周四 · 日报第 212 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-19">AI 日报｜11月19日：Google DeepMind 发布 Gemini 4 Neon</a></h3><p>Gemini 4 Neon 面向复杂任务，Project Genie 增加 Genie 4 体验，Anthropic 公布每股 83 美元的 IPO 定价。</p></div>
+        </li>
+        <li class="report">
+          <div><time datetime="2026-11-18T08:00:00+08:00">11 月 18 日 08:00</time><span class="edition">周三 · 日报第 211 期</span></div>
+          <div><h3><a class="title-link" href="https://aihot.news/daily/2026-11-18">AI 日报｜11月18日：OpenAI 发布 GPT-6.2 Astra 与 GPT-6.2 Sol</a></h3><p>OpenAI 按任务复杂度推出两个版本并发布系统卡，Google 在六国拓展 Gemini Tasks 的免费使用范围。</p></div>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>整理日期 <time datetime="2026-11-25">2026 年 11 月 25 日</time>（北京时间）。概要按事件去重，短评为编辑点评。</p>
+      <p><a href="https://aihot.news/daily">AIHot 日报</a> · <a href="https://aihot.news/weekly">周报</a> · <a href="https://aihot.news/monthly">月报</a> · <a href="#top">回到顶部</a></p>
+    </div>
+  </footer>
+</body>
+</html>
